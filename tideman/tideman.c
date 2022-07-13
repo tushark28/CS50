@@ -119,9 +119,9 @@ void record_preferences(int ranks[])
         for(int j=0;j<candidate_count;j++){
             preferences[i][j]=ranks[j];
         }
-    }
-    }
     return;
+    }
+    }
 }
 
 // Record pairs of candidates where one is preferred over the other
