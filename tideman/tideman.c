@@ -139,7 +139,9 @@ void add_pairs(void)
                 pair_count++;
             }
             else if(preferences[i][j]<preferences[j][i]){
-                pair
+                pairs[pair_count].winner = j;
+                pairs[pair_count].loser = i;
+                pair_count++;
             }
         }
     }
