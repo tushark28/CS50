@@ -134,8 +134,8 @@ void add_pairs(void)
         for (int j = i + 1; j < candidate_count)
         {
             if(preferences[i][j]>preferences[j][i]){
-                pairwinner=i;
-                loser=j;
+                pairs[pair_count].winner = i;
+                pairs[pair_count].loser = j;
             }
         }
     }
