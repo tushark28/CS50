@@ -113,7 +113,14 @@ bool vote(int rank, string name, int ranks[])
 void record_preferences(int ranks[])
 {
     // TODO
-    
+    for (int i = 0; i < MAX; i++)
+    {
+    if(!preferences[i][0]){
+        for(int j=0;j<candidate_count;j++){
+            preferences[i][j]=ranks[j];
+        }
+    }
+    }
     return;
 }
 
