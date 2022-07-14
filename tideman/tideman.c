@@ -189,7 +189,9 @@ void lock_pairs(void)
         }
         if (flag ==1 )
         {
+            if(locked[candidate_count-1][0]==true){
             locked[pairs[i].winner][pairs[i].loser]=false;
+            }
             return;
         }
     }
