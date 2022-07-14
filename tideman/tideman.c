@@ -205,7 +205,7 @@ void lock_pairs(void)
         cmax = temp;
         int flag = 0;
         if(locked[candidate_count-1][0]==true){
-        for (int x = 0; x < candidate_count; x++)
+        for (int x = 0; x < candidate_count-1; x++)
         {
             if (locked[x][x + 1] == true)
             {
