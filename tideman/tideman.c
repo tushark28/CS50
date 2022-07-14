@@ -197,7 +197,18 @@ void lock_pairs(void)
     }
     locked[ci][cj]=true;
     cmax = max;
-    for(int x=0;x<candidate)
+    int flag=0;
+    for(int x=0;x<candidate_count;x++){
+        if(locked[x][x+1]==true){
+            flag=1;
+        }
+        else{
+            break;
+        }
+    }
+    if(flag==1){
+        return;
+    }
     }
     return;
 }
