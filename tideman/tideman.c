@@ -187,7 +187,7 @@ void lock_pairs(void)
                 break;
             }
         }
-        if (flag == 1 && locked[candidate_count-1][0]==true)
+        if (flag ==1)
         {
             return;
         }
