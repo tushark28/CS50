@@ -176,7 +176,7 @@ void lock_pairs(void)
     for(int i=0;i<candidate_count;i++){
         for(int j=0;j<candidate_count;j++){
             if(preferences[i][j]>preferences[j][i]){
-                int diff=preferences[i][j]-preferences[j][i]
+                int diff=preferences[i][j]-preferences[j][i];
                 if(diff>temp){
                     temp=diff;
                     ci=i;
@@ -184,7 +184,7 @@ void lock_pairs(void)
                 }
             }
             if(preferences[i][j]<preferences[j][i]){
-                int diff=preferences[j][i]-preferences[i][j]
+                int diff=preferences[j][i]-preferences[i][j];
                 if(diff>temp){
                     temp=diff;
                     ci=j;
