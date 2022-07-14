@@ -171,7 +171,6 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
-    int intensity[candidate_count][candidate_count];
     for(int n=0;n<candidate_count*candidate_count;n++){
     int ci,cj,temp=0,cmax=100;
     for(int i=0;i<candidate_count;i++){
