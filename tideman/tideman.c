@@ -171,43 +171,54 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
-    for(int n=0;n<candidate_count*candidate_count;n++){
-    int ci,cj,temp=0,cmax=100;
-    for(int i=0;i<candidate_count;i++){
-        for(int j=0;j<candidate_count;j++){
-            locked[i][j]=false;
-            if(preferences[i][j]>preferences[j][i]){
-                int diff=preferences[i][j]-preferences[j][i];
-                if(diff>temp && diff<=cmax){
-                    temp=diff;
-                    ci=i;
-                    cj=j;
+    for (int n = 0; n < candidate_count * candidate_count; n++)
+    {
+        int ci, cj, temp = 0, cmax = 100;
+        for (int i = 0; i < candidate_count; i++)
+        {
+            for (int j = 0; j < candidate_count; j++)
+            {
+                locked[i][j] = false;
+                if (preferences[i][j] > preferences[j][i])
+                {
+                    int diff = preferences[i][j] - preferences[j][i];
+                    if (diff > temp && diff <= cmax)
+                    {
+                        temp = diff;
+                        ci = i;
+                        cj = j;
+                    }
+                }
+                else if (preferences[i][j] < preferences[j][i])
+                {
+                    int diff = preferences[j][i] - preferences[i][j];
+                    if (diff > temp && diff <= cmax)
+                    {
+                        temp = diff;
+                        ci = j;
+                        cj = i;
+                    }
                 }
             }
-            else if(preferences[i][j]<preferences[j][i]){
-                int diff=preferences[j][i]-preferences[i][j];
-                if(diff>temp && diff<=cmax){
-                    temp=diff;
-                    ci=j;
-                    cj=i;
-                }
+        }
+        locked[ci][cj] = true;
+        cmax = temp;
+        int flag = 0;
+        for (int x = 0; x < candidate_count; x++)
+        {
+            if (locked[x][x + 1] == true)
+            {
+                flag = 1;
+            }
+            else
+            {
+                break;
             }
         }
-    }
-    locked[ci][cj]=true;
-    cmax = temp;
-    int flag=0;
-    for(int x=0;x<candidate_count;x++){
-        if(locked[x][x+1]==true){
-            flag=1;
+        if (flag == 1)
+        {
+            return;
         }
-        else{
-            break;
-        }
-    }
-    if(flag==1){
-        return;
-    }
     }
     return;
 }
