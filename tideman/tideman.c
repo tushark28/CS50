@@ -172,10 +172,24 @@ void lock_pairs(void)
 {
     // TODO
     int intensity[candidate_count][candidate_count];
+    int ci,cj,temp=0;
     for(int i=0;i<candidate_count;i++){
         for(int j=0;j<candidate_count;j++){
             if(preferences[i][j]>preferences[j][i]){
-                
+                int diff=preferences[i][j]-preferences[j][i]
+                if(diff>temp){
+                    temp=diff;
+                    ci=i;
+                    cj=j;
+                }
+            }
+            if(preferences[i][j]<preferences[j][i]){
+                int diff=preferences[j][i]-preferences[i][j]
+                if(diff>temp){
+                    temp=diff;
+                    ci=j;
+                    cj=i;
+                }
             }
         }
     }
