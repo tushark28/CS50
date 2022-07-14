@@ -171,9 +171,9 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
+    int ci, cj, temp = 0, cmax = 100;
     for (int n = 0; n < candidate_count * candidate_count; n++)
     {
-        int ci, cj, temp = 0, cmax = 100;
         for (int i = 0; i < candidate_count; i++)
         {
             for (int j = 0; j < candidate_count; j++)
