@@ -183,7 +183,7 @@ void lock_pairs(void)
                     cj=j;
                 }
             }
-            if(preferences[i][j]<preferences[j][i]){
+            else if(preferences[i][j]<preferences[j][i]){
                 int diff=preferences[j][i]-preferences[i][j];
                 if(diff>temp){
                     temp=diff;
@@ -193,6 +193,8 @@ void lock_pairs(void)
             }
         }
     }
+    locked[ci][cj]=true;
+    
     return;
 }
 
