@@ -174,35 +174,10 @@ void lock_pairs(void)
     int ci, cj, temp, cmax = 100;
     for (int n = 0; n < candidate_count * candidate_count; n++)
     {
-        temp=0;
-        for (int i = 0; i < candidate_count; i++)
+        for (int i = 0; i < pair_count; i++)
         {
-            for (int j = i+1; j < candidate_count; j++)
-            {
-                if (preferences[i][j] > preferences[j][i])
-                {
-                    int diff = preferences[i][j] - preferences[j][i];
-                    if (diff > temp && diff <= cmax)
-                    {
-                        temp = diff;
-                        ci = i;
-                        cj = j;
-                    }
-                }
-                else if (preferences[i][j] < preferences[j][i])
-                {
-                    int diff = preferences[j][i] - preferences[i][j];
-                    if (diff > temp && diff <= cmax)
-                    {
-                        temp = diff;
-                        ci = j;
-                        cj = i;
-                    }
-                }
-            }
-        }
-        locked[ci][cj] = true;
-        cmax = temp;
+            locked[pairs[i].winner][pairs[i].loser] = true;
+
         int flag = 0;
         if(locked[candidate_count-1][0]==true){
         for (int x = 0; x < candidate_count-1; x++)
@@ -219,6 +194,7 @@ void lock_pairs(void)
         if (flag == 1)
         {
             return;
+        }
         }
         }
     }
