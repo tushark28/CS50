@@ -177,7 +177,7 @@ void lock_pairs(void)
         int flag = 0;
         for (int x = 0; x < candidate_count-1; x++)
         {
-            if (locked[x][x + 1] == true)
+            if (locked[x][x + 1] == true || locked[pairs])
             {
                 flag = 1;
             }
