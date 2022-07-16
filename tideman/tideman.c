@@ -167,16 +167,38 @@ void sort_pairs(void)
     return;
 }
 
+bool check_cycles(int lose, int win)
+{
+    // Base case, if the loser path returns to the winner, we have a circle
+    if (lose == win)
+    {
+        return true;
+    }
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (locked[lose][i]) // If the loser has an edge over another candidate, i.e, if the loser candidate won against another candidate
+        {
+            if (check_cycles(i, win )) // We'll check if other candidate that lost has a winning path to another candidate
+            {
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
     // TODO
-        for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < pair_count; i++)
+    {
+        // If we didn't created a cycle, we'll register the lock
+        if (!check_cycles(pairs[i].loser, pairs[i].winner))
         {
-        locked[pairs[i].winner][pairs[i].loser] = true;
-        int flag = 0;
-        while(flag==0){
-            locked[pairs[i].loser]
+            locked[pairs[i].winner][pairs[i].loser] = true;
         }
     }
     return;
