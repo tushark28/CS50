@@ -15,8 +15,7 @@ typedef struct
 {
     int winner;
     int loser;
-}
-pair;
+} pair;
 
 // Array of candidates
 string candidates[MAX];
@@ -100,11 +99,11 @@ int main(int argc, string argv[])
 bool vote(int rank, string name, int ranks[])
 {
     // TODO
-    for(int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        if(strcmp(name,candidates[i]) == 0)
+        if (strcmp(name, candidates[i]) == 0)
         {
-            ranks[rank]= i;
+            ranks[rank] = i;
             return true;
         }
     }
@@ -117,7 +116,7 @@ void record_preferences(int ranks[])
     // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = i + 1; j < candidate_count;j++)
+        for (int j = i + 1; j < candidate_count; j++)
         {
             preferences[ranks[i]][ranks[j]]++;
         }
@@ -129,16 +128,18 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
-     for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = i + 1; j < candidate_count;j++)
+        for (int j = i + 1; j < candidate_count; j++)
         {
-            if(preferences[i][j]>preferences[j][i]){
+            if (preferences[i][j] > preferences[j][i])
+            {
                 pairs[pair_count].winner = i;
                 pairs[pair_count].loser = j;
                 pair_count++;
             }
-            else if(preferences[i][j]<preferences[j][i]){
+            else if (preferences[i][j] < preferences[j][i])
+            {
                 pairs[pair_count].winner = j;
                 pairs[pair_count].loser = i;
                 pair_count++;
@@ -152,7 +153,7 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
-    for (int i = pair_count - 1; i >= 0 ; i--)
+    for (int i = pair_count - 1; i >= 0; i--)
     {
         for (int j = 0; j <= i - 1; j++)
         {
@@ -206,10 +207,10 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
-    //TODO
+    // TODO
     for (int i = 0; i < candidate_count; i++)
     {
-        int fc = 0; //False count
+        int fc = 0; // False count
         for (int j = 0; j < candidate_count; j++)
         {
             if (!locked[j][i])
