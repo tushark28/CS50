@@ -169,7 +169,6 @@ void sort_pairs(void)
 
 bool check_cycles(int lose, int win)
 {
-    // Base case, if the loser path returns to the winner, we have a circle
     if (lose == win)
     {
         return true;
@@ -179,7 +178,7 @@ bool check_cycles(int lose, int win)
     {
         if (locked[lose][i]) // If the loser has an edge over another candidate, i.e, if the loser candidate won against another candidate
         {
-            if (check_cycles(i, win )) // We'll check if other candidate that lost has a winning path to another candidate
+            if (check_cycles(i, win)) // We'll check if other candidate that lost has a winning path to another candidate
             {
                 return true;
             }
