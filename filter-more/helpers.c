@@ -9,7 +9,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int col = 0; col < width; col++) // col stands for Column
         {
             //Fetch all RGB values and average it
-            int average = round((image[row][col].rgbtRed + image[row][col].rgbtGreen + image[row][col].rgbtBlue) / 3.0);
+            float average = round((image[row][col].rgbtRed + image[row][col].rgbtGreen + image[row][col].rgbtBlue) / 3.0);
 
             //New pixel value
             image[row][col].rgbtRed = average;
