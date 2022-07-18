@@ -78,6 +78,12 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE new[height][width];
+    for(int i =0;i<height;i++){
+        for(int j=0;j<width;j++){
+            new[i][j]=image[i][j];
+        }
+    }
     for(int i =0;i<height;i++){
         for(int j=0;j<width;j++){
             int arr[3];
@@ -92,9 +98,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             for(int x=0;x<reducedi;x++){
                 for(int y=0;y<reducedj;y++){
-                    sumR += image[arr[x]][arr2[y]].rgbtRed;
-                    sumG += image[arr[x]][arr2[y]].rgbtGreen;
-                    sumB += image[arr[x]][arr2[y]].rgbtBlue;
+                    sumR += new[arr[x]][arr2[y]].rgbtRed;
+                    sumG += new[arr[x]][arr2[y]].rgbtGreen;
+                    sumB += new[arr[x]][arr2[y]].rgbtBlue;
                 }
             }
             float avgR= round(sumR/(reducedi*reducedj));
