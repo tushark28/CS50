@@ -84,7 +84,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int arr2[3];
             int reducedi= ired(i,arr,height);
             int reducedj= jred(j,arr2,width);
-            
+            for(int x=0;)
         }
     }
     return;
