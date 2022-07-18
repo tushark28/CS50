@@ -175,6 +175,11 @@ for(int i =0;i<height;i++){
                     }
                 }
             }
+            image[i][j].rgbtRed = sqrt((sumRx*sumRx) + (sumRy*sumRy));
+            image[i][j].rgbtGreen = sqrt((sumGx*sumGx) + (sumGy*sumGy));
+            image[i][j].rgbtBlue = sqrt((sumBx*sumBx) + (sumBy*sumBy));
+        }
+}
 
 
     return;
