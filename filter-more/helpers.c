@@ -187,29 +187,38 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int y = 0; y < reducedj; y++)
                 {
-                    for (int t = 0; t < 3; t++)
-                    {
-                        for (int m = 0; m < 3; m++)
-                        {
-                            sumRx += gx[t][m] * new[arr[x]][arr2[y]].rgbtRed;
-                            sumGx += gx[t][m] * new[arr[x]][arr2[y]].rgbtGreen;
-                            sumBx += gx[t][m] * new[arr[x]][arr2[y]].rgbtBlue;
-                        }
-                    }
-                    for (int t = 0; t < 3; t++)
-                    {
-                        for (int m = 0; m < 3; m++)
-                        {
-                            sumRy += gy[t][m] * new[arr[x]][arr2[y]].rgbtRed;
-                            sumGy += gy[t][m] * new[arr[x]][arr2[y]].rgbtGreen;
-                            sumBy += gy[t][m] * new[arr[x]][arr2[y]].rgbtBlue;
-                        }
-                    }
+
+                            sumRx += gx[x][y] * new[arr[x]][arr2[y]].rgbtRed;
+                            sumGx += gx[x][y] * new[arr[x]][arr2[y]].rgbtGreen;
+                            sumBx += gx[x][y] * new[arr[x]][arr2[y]].rgbtBlue;
+
+                            sumRy += gy[x][y] * new[arr[x]][arr2[y]].rgbtRed;
+                            sumGy += gy[x][y] * new[arr[x]][arr2[y]].rgbtGreen;
+                            sumBy += gy[x][y] * new[arr[x]][arr2[y]].rgbtBlue;
+
                 }
             }
+            if(sqrt((sumRx * sumRx) + (sumRy * sumRy))> 255){
+                image[i][j].rgbtRed = 255
+            }
+            else{
             image[i][j].rgbtRed = sqrt((sumRx * sumRx) + (sumRy * sumRy));
+            }
+
+            if(sqrt((sumRx * sumRx) + (sumRy * sumRy))>255){
+                image[i][j].rgbtGreen = 255;
+            }
+            else{
             image[i][j].rgbtGreen = sqrt((sumGx * sumGx) + (sumGy * sumGy));
+            }
+
+            if(sqrt((sumBx * sumBx) + (sumBy * sumBy))>255){
+                image[i][j].rgbtBlue = 255;
+            }
+            else{
             image[i][j].rgbtBlue = sqrt((sumBx * sumBx) + (sumBy * sumBy));
+            }
+
         }
     }
 
