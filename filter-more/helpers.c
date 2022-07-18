@@ -1,14 +1,46 @@
 #include <math.h>
 #include "helpers.h"
 // Convert image to grayscale
-int ired(int cred){
-    if(cred==0){
-        return 0;
+int ired(int ci,int arr[],int height,int width){
+
+    if(ci==0){
+        arr[0]= 0;
+        arr[0] = 1;
+        return 2;
+    }
+    else if(ci==height){
+        arr[0]=height;
+        arr[1]=height-1;
+        return 2;
     }
     else{
-        
+        arr[0]= ci;
+        arr[1]= ci-1;
+        arr[2]= ci+1;
+        return 3;
     }
 }
+
+int jred(int cj,int arr2[],int height,int width){
+
+    if(cj==width){
+        arr2[0]=width;
+        arr2[1]=width-1;
+        return 2;
+    }
+    else if(cj==0){
+        arr2[0]=0;
+        arr2[1]=1;
+        return 2;
+    }
+    else{
+        arr2[0]= cj;
+        arr2[1]= cj-1;
+        arr2[2]= cj+1;
+        return 3;
+    }
+}
+
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
     for(int i =0;i<height;i++){
@@ -48,7 +80,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     for(int i =0;i<height;i++){
         for(int j=0;j<width;j++){
-            if(i==0 && j)
+            
         }
     }
     return;
