@@ -2,7 +2,12 @@
 #include "helpers.h"
 // Convert image to grayscale
 int ired(int cred){
-    if(cred==0)
+    if(cred==0){
+        return 0;
+    }
+    else{
+        
+    }
 }
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
