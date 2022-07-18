@@ -145,20 +145,27 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             new[i][j]=image[i][j];
         }
     }
+for(int i =0;i<height;i++){
+        for(int j=0;j<width;j++){
+            int arr[3];
+            int arr2[3];
 
-    int reducedi= ired(i,arr,height);
-    int reducedj= jred(j,arr2,width);
+            int reducedi= ired(i,arr,height);
+            int reducedj= jred(j,arr2,width);
 
-    int sumR=0;
-    int sumG=0;
-    int sumB=0;
+            int sumR=0;
+            int sumG=0;
+            int sumB=0;
 
-    for(int x=0;x<reducedi;x++){
-        for(int y=0;y<reducedj;y++){
-            for(int n)
-            sumR += new[arr[x]][arr2[y]].rgbtRed;
-            sumG += new[arr[x]][arr2[y]].rgbtGreen;
-            sumB += new[arr[x]][arr2[y]].rgbtBlue;
+            for(int x=0;x<reducedi;x++){
+                for(int y=0;y<reducedj;y++){
+                    for(int t=0;t<3;t++){
+                        for(int m=0;m<3;m++){
+                    sumR += gx[t][m]*new[arr[x]][arr2[y]].rgbtRed;
+                    sumG += gx[t][m]*new[arr[x]][arr2[y]].rgbtGreen;
+                    sumB += gx[t][m]*new[arr[x]][arr2[y]].rgbtBlue;
+                }
+                    }
                 }
             }
 
