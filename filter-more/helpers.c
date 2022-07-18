@@ -130,7 +130,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     gx[2][2] = 1;
 
     gy[0][0] = -1;
-    gy[0][1] = 2;
+    gy[0][1] = -2;
     gy[0][2] = -1;
     gy[1][0] = 0;
     gy[1][1] = 0;
@@ -155,6 +155,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
     for(int x=0;x<reducedi;x++){
         for(int y=0;y<reducedj;y++){
+            for(int n)
             sumR += new[arr[x]][arr2[y]].rgbtRed;
             sumG += new[arr[x]][arr2[y]].rgbtGreen;
             sumB += new[arr[x]][arr2[y]].rgbtBlue;
