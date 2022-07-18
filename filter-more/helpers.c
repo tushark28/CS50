@@ -199,7 +199,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
             if(sqrt((sumRx * sumRx) + (sumRy * sumRy))> 255){
-                image[i][j].rgbtRed = 255
+                image[i][j].rgbtRed = 255;
             }
             else{
             image[i][j].rgbtRed = sqrt((sumRx * sumRx) + (sumRy * sumRy));
