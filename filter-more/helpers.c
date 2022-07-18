@@ -84,11 +84,17 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int arr2[3];
             int reducedi= ired(i,arr,height);
             int reducedj= jred(j,arr2,width);
+            int avgR=0;
+            int avgG=0;
+            int avgB=0;
             for(int x=0;x<reducedi;x++){
                 for(int y=0;y<reducedj;y++){
-                    
+                    avgR += image[arr[x]][arr2[y]].rgbtRed;
+                    avgG += image[arr[x]][arr2[y]].rgbtGreen;
+                    avgB += image[arr[x]][arr2[y]].rgbtBlue;
                 }
             }
+            
         }
     }
     return;
