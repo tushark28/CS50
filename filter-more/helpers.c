@@ -23,7 +23,7 @@ int ired(int ci,int arr[],int height){
 
 int jred(int cj,int arr2[],int width){
 
-    if(cj==width){
+    if(cj==width-1){
         arr2[0]=width-1;
         arr2[1]=width-2;
         return 2;
