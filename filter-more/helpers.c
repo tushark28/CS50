@@ -153,10 +153,14 @@ for(int i =0;i<height;i++){
             int reducedi= ired(i,arr,height);
             int reducedj= jred(j,arr2,width);
 
-            int sumR=0;
-            int sumG=0;
-            int sumB=0;
+            int sumRx=0;
+            int sumGx=0;
+            int sumBx=0;
 
+            int sumRy=0;
+            int sumGy=0;
+            int sumBy=0;
+            
             for(int x=0;x<reducedi;x++){
                 for(int y=0;y<reducedj;y++){
                     for(int t=0;t<3;t++){
