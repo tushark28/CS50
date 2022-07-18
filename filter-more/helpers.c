@@ -1,6 +1,9 @@
 #include <math.h>
 #include "helpers.h"
 // Convert image to grayscale
+int ired(int cred){
+    if(cred==0)
+}
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
     for(int i =0;i<height;i++){
