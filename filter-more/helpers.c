@@ -161,9 +161,16 @@ for(int i =0;i<height;i++){
                 for(int y=0;y<reducedj;y++){
                     for(int t=0;t<3;t++){
                         for(int m=0;m<3;m++){
-                    sumR += gx[t][m]*new[arr[x]][arr2[y]].rgbtRed;
-                    sumG += gx[t][m]*new[arr[x]][arr2[y]].rgbtGreen;
-                    sumB += gx[t][m]*new[arr[x]][arr2[y]].rgbtBlue;
+                    sumRx += gx[t][m]*new[arr[x]][arr2[y]].rgbtRed;
+                    sumGx += gx[t][m]*new[arr[x]][arr2[y]].rgbtGreen;
+                    sumBx += gx[t][m]*new[arr[x]][arr2[y]].rgbtBlue;
+                }
+                    }
+                for(int t=0;t<3;t++){
+                        for(int m=0;m<3;m++){
+                    sumRy += gy[t][m]*new[arr[x]][arr2[y]].rgbtRed;
+                    sumGy += gy[t][m]*new[arr[x]][arr2[y]].rgbtGreen;
+                    sumBy += gy[t][m]*new[arr[x]][arr2[y]].rgbtBlue;
                 }
                     }
                 }
