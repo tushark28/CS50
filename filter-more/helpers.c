@@ -135,28 +135,30 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
-    int gx[3][3];
-    int gy[3][3];
-    gx[0][0] = -1;
-    gx[0][1] = 0;
-    gx[0][2] = 1;
-    gx[1][0] = -2;
-    gx[1][1] = 0;
-    gx[1][2] = 2;
-    gx[2][0] = -1;
-    gx[2][1] = 0;
-    gx[2][2] = 1;
+    // int gx[3][3];
+    // int gy[3][3];
+    // gx[0][0] = -1;
+    // gx[0][1] = 0;
+    // gx[0][2] = 1;
+    // gx[1][0] = -2;
+    // gx[1][1] = 0;
+    // gx[1][2] = 2;
+    // gx[2][0] = -1;
+    // gx[2][1] = 0;
+    // gx[2][2] = 1;
 
-    gy[0][0] = -1;
-    gy[0][1] = -2;
-    gy[0][2] = -1;
-    gy[1][0] = 0;
-    gy[1][1] = 0;
-    gy[1][2] = 0;
-    gy[2][0] = 1;
-    gy[2][1] = 2;
-    gy[2][2] = 1;
+    // gy[0][0] = -1;
+    // gy[0][1] = -2;
+    // gy[0][2] = -1;
+    // gy[1][0] = 0;
+    // gy[1][1] = 0;
+    // gy[1][2] = 0;
+    // gy[2][0] = 1;
+    // gy[2][1] = 2;
+    // gy[2][2] = 1;
 
+    int gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+    int gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
     RGBTRIPLE new[height][width];
     for (int i = 0; i < height; i++)
     {
@@ -198,7 +200,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
                 }
             }
-            float red = sqrt((sumRx * sumRx) + (sumRy * sumRy));
+            int red = round(sqrt((sumRx * sumRx) + (sumRy * sumRy)));
             if(sqrt((red> 255){
                 image[i][j].rgbtRed = 255;
             }
@@ -206,7 +208,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtRed = round(red);
             }
 
-            float green = sqrt((sumGx * sumGx) + (sumGy * sumGy));
+            int green = round(sqrt((sumGx * sumGx) + (sumGy * sumGy)));
             if(green>255){
                 image[i][j].rgbtGreen = 255;
             }
@@ -214,7 +216,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtGreen = round(green) ;
             }
 
-            float blue = sqrt((sumBx * sumBx) + (sumBy * sumBy));
+            int blue = round(sqrt((sumBx * sumBx) + (sumBy * sumBy)));
             if(blue>255){
                 image[i][j].rgbtBlue = 255;
             }
