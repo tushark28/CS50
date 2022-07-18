@@ -22,7 +22,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
             int tred= image[i][j].rgbtRed;
             int tgreen= image[i][j].rgbtGreen;
             int tblue= image[i][j].rgbtBlue;
-            
+
             image[i][j].rgbtRed = image[i][width -1- j].rgbtRed;
             image[i][j].rgbtGreen = image[i][width -1- j].rgbtGreen;
             image[i][j].rgbtBlue = image[i][width -1- j].rgbtBlue;
@@ -38,7 +38,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
-
+    
     return;
 }
 
