@@ -201,11 +201,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 }
             }
             int red = round(sqrt((sumRx * sumRx) + (sumRy * sumRy)));
-            if(sqrt((red> 255){
+            if((red> 255){
                 image[i][j].rgbtRed = 255;
             }
             else{
-            image[i][j].rgbtRed = round(red);
+            image[i][j].rgbtRed = red;
             }
 
             int green = round(sqrt((sumGx * sumGx) + (sumGy * sumGy)));
@@ -213,7 +213,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 image[i][j].rgbtGreen = 255;
             }
             else{
-            image[i][j].rgbtGreen = round(green) ;
+            image[i][j].rgbtGreen = green ;
             }
 
             int blue = round(sqrt((sumBx * sumBx) + (sumBy * sumBy)));
