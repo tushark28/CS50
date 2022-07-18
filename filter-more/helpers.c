@@ -8,9 +8,9 @@ int ired(int ci,int arr[],int height){
         arr[1] = 1;
         return 2;
     }
-    else if(ci==height){
-        arr[0]=height;
-        arr[1]=height-1;
+    else if(ci==height-1){
+        arr[0]=height-1;
+        arr[1]=height-2;
         return 2;
     }
     else{
@@ -24,8 +24,8 @@ int ired(int ci,int arr[],int height){
 int jred(int cj,int arr2[],int width){
 
     if(cj==width){
-        arr2[0]=width;
-        arr2[1]=width-1;
+        arr2[0]=width-1;
+        arr2[1]=width-2;
         return 2;
     }
     else if(cj==0){
