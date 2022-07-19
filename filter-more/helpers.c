@@ -113,10 +113,12 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
 
+            //gx sum counter for Red, Green and Blue respectively.
             int sumRx = 0;
             int sumGx = 0;
             int sumBx = 0;
 
+            //gy sum counter for Red, Green and Blue respectively.
             int sumRy = 0;
             int sumGy = 0;
             int sumBy = 0;
