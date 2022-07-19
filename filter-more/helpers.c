@@ -190,13 +190,16 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 for (int y = -1; y < reducedj; y++)
                 {
                             if(i==0 || j==0){
+                            static int temp1=1, temp2=1;
                             sumRx += gx[temp1][temp2] * new[arr[x]][arr2[y]].rgbtRed;
                             sumGx += gx[temp1][temp2] * new[arr[x]][arr2[y]].rgbtGreen;
                             sumBx += gx[temp1][temp2] * new[arr[x]][arr2[y]].rgbtBlue;
 
                             sumRy += gy[temp1][temp2] * new[arr[x]][arr2[y]].rgbtRed;
-                            sumGy += gy[x][y] * new[arr[x]][arr2[y]].rgbtGreen;
-                            sumBy += gy[x][y] * new[arr[x]][arr2[y]].rgbtBlue;
+                            sumGy += gy[temp1][temp2] * new[arr[x]][arr2[y]].rgbtGreen;
+                            sumBy += gy[temp1][temp2] * new[arr[x]][arr2[y]].rgbtBlue;
+                            temp1++;
+                            temp2++;
                             }
 
                             sumRx += gx[x][y] * new[arr[x]][arr2[y]].rgbtRed;
