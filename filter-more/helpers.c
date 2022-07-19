@@ -43,6 +43,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    //temporary RGBTRIPLE for copying image
     RGBTRIPLE new[height][width];
     for (int i = 0; i < height; i++)
     {
@@ -52,6 +53,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
+    //looping through each pixel of the image.
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -65,7 +67,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int y = -1; y < 2; y++)
                 {
-                    //only appropriate indexes in the loop
+                    //only appropriate indexes of the loop
                     if (i + x >= 0 && i + x < height && j + y >= 0 && j + y < width)
                     {
                         sumR += new[i + x][y + j].rgbtRed;
@@ -80,6 +82,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int avgG = round(sumG / (float)(count));
             int avgB = round(sumB / (float)(count));
 
+            //new pixel value
             image[i][j].rgbtRed = avgR;
             image[i][j].rgbtGreen = avgG;
             image[i][j].rgbtBlue = avgB;
@@ -127,6 +130,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int y = -1; y < 2; y++)
                 {
+                    //only appropriate indexes of the loop
                     if (i + x >= 0 && i + x < height && j + y >= 0 && j + y < width)
                     {
                         sumRx += gx[x + 1][y + 1] * new[i + x][y + j].rgbtRed;
@@ -144,6 +148,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int green = round(sqrt((sumGx * sumGx) + (sumGy * sumGy)));
             int blue = round(sqrt((sumBx * sumBx) + (sumBy * sumBy)));
 
+            //new value of pixel, if greater than 255 it will cap it back to 255
             image[i][j].rgbtRed = (red > 255) ? 255 : red;
             image[i][j].rgbtGreen = (green > 255) ? 255 : green;
             image[i][j].rgbtBlue = (blue > 255) ? 255 : blue;
