@@ -185,9 +185,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int sumGy = 0;
             int sumBy = 0;
 
-            for (int x = 0; x < reducedi; x++)
+            for (int x = -1; x < reducedi; x++)
             {
-                for (int y = 0; y < reducedj; y++)
+                for (int y = -1; y < reducedj; y++)
                 {
 
                             sumRx += gx[x][y] * new[arr[x]][arr2[y]].rgbtRed;
