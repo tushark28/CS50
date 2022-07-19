@@ -112,13 +112,16 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int sumG = 0;
             int sumB = 0;
 
-            for (int x = 0; x < reducedi; x++)
+            for (int x = -1; x < 2; x++)
             {
-                for (int y = 0; y < reducedj; y++)
+                for (int y = -1; y < 2; y++)
                 {
-                    sumR += new[arr[x]][arr2[y]].rgbtRed;
-                    sumG += new[arr[x]][arr2[y]].rgbtGreen;
-                    sumB += new[arr[x]][arr2[y]].rgbtBlue;
+                            if(i+x>=0 && i+x<height && j+y>=0 && j+y<width){
+
+                    sumR += new[i+x][y+j].rgbtRed;
+                    sumG += new[i+x][y+j].rgbtGreen;
+                    sumB += new[i+x][j+y].rgbtBlue;
+                            }
                 }
             }
             int avgR = round(sumR / (float)(reducedi * reducedj));
