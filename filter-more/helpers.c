@@ -189,15 +189,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int y = 0; y < reducedj; y++)
                 {
-                            if(i==0){
-                            int temp1=1+x;
-                            int temp2;
-                                if(j==0){
-                                    temp2=1+y;
-                                }
-                                else{
-                                    temp2=y;
-                                }
+                            
                             sumRx += gx[temp1][temp2] * new[arr[x]][arr2[y]].rgbtRed;
                             sumGx += gx[temp1][temp2] * new[arr[x]][arr2[y]].rgbtGreen;
                             sumBx += gx[temp1][temp2] * new[arr[x]][arr2[y]].rgbtBlue;
