@@ -91,10 +91,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    //gx array for checking changes horizontally
     int gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
-    //
+
+    //gy array for checking changes vertically
     int gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
 
+    //temporary RGBTRIPLE for copying image
     RGBTRIPLE new[height][width];
     for (int i = 0; i < height; i++)
     {
@@ -104,6 +107,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
+    //looping through each pixel of the image.
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
