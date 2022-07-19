@@ -59,14 +59,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int sumR = 0;
             int sumG = 0;
             int sumB = 0;
-            int count =0;
+            int count = 0;
+
             for (int x = -1; x < 2; x++)
             {
                 for (int y = -1; y < 2; y++)
                 {
+                    //only appropriate indexes in the loop
                     if (i + x >= 0 && i + x < height && j + y >= 0 && j + y < width)
                     {
-
                         sumR += new[i + x][y + j].rgbtRed;
                         sumG += new[i + x][y + j].rgbtGreen;
                         sumB += new[i + x][j + y].rgbtBlue;
@@ -91,6 +92,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     int gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+    //
     int gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
 
     RGBTRIPLE new[height][width];
@@ -121,7 +123,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (i + x >= 0 && i + x < height && j + y >= 0 && j + y < width)
                     {
-
                         sumRx += gx[x + 1][y + 1] * new[i + x][y + j].rgbtRed;
                         sumGx += gx[x + 1][y + 1] * new[x + i][y + j].rgbtGreen;
                         sumBx += gx[x + 1][y + 1] * new[x + i][y + j].rgbtBlue;
