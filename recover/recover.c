@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
     FILE *input = fopen(argv[1], "r");
     BYTE buffer[BLOCK_SIZE];
-    int jpegflag = 0,jpegcounter=0;
+    int jpegflag = 0,jpegcounter=-1;
     FILE *output;
     while (fread(&buffer, 1, BLOCK_SIZE, input) == BLOCK_SIZE)
     {
