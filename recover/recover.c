@@ -7,6 +7,9 @@ typedef uint8_t BYTE;
 
 int main(int argc, char *argv[])
 {
+    if(argc != 2){
+        printf()
+    }
     FILE *input = fopen(argv[1], "r");
     BYTE buffer[BLOCK_SIZE];
     int jpegflag = 0,jpegcounter=-1;
