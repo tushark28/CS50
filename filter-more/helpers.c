@@ -189,10 +189,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int y = -1; y < 2; y++)
                 {
-                            if(i-x<0 ||){
+                            if(i-x<0 || i+x>=height){
                                 continue;
                             }
-                            if(j-y<0){
+                            if(j-y<0 || j+y>=width){
                                 continue;
                             }
                             sumRx += gx[x+1][y+1] * new[i+x][y+j].rgbtRed;
