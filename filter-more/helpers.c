@@ -51,7 +51,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             new[i][j] = image[i][j];
         }
     }
-    
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -64,12 +64,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int y = -1; y < 2; y++)
                 {
-                            if(i+x>=0 && i+x<height && j+y>=0 && j+y<width){
+                    if (i + x >= 0 && i + x < height && j + y >= 0 && j + y < width)
+                    {
 
-                    sumR += new[i+x][y+j].rgbtRed;
-                    sumG += new[i+x][y+j].rgbtGreen;
-                    sumB += new[i+x][j+y].rgbtBlue;
-                            }
+                        sumR += new[i + x][y + j].rgbtRed;
+                        sumG += new[i + x][y + j].rgbtGreen;
+                        sumB += new[i + x][j + y].rgbtBlue;
+                    }
                 }
             }
 
@@ -117,16 +118,17 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             {
                 for (int y = -1; y < 2; y++)
                 {
-                            if(i+x>=0 && i+x<height && j+y>=0 && j+y<width){
+                    if (i + x >= 0 && i + x < height && j + y >= 0 && j + y < width)
+                    {
 
-                            sumRx += gx[x+1][y+1] * new[i+x][y+j].rgbtRed;
-                            sumGx += gx[x+1][y+1] * new[x+i][y+j].rgbtGreen;
-                            sumBx += gx[x+1][y+1] * new[x+i][y+j].rgbtBlue;
+                        sumRx += gx[x + 1][y + 1] * new[i + x][y + j].rgbtRed;
+                        sumGx += gx[x + 1][y + 1] * new[x + i][y + j].rgbtGreen;
+                        sumBx += gx[x + 1][y + 1] * new[x + i][y + j].rgbtBlue;
 
-                            sumRy += gy[x+1][y+1] * new[x+i][y+j].rgbtRed;
-                            sumGy += gy[x+1][y+1] * new[x+i][y+j].rgbtGreen;
-                            sumBy += gy[x+1][y+1] * new[x+i][y+j].rgbtBlue;
-                            }
+                        sumRy += gy[x + 1][y + 1] * new[x + i][y + j].rgbtRed;
+                        sumGy += gy[x + 1][y + 1] * new[x + i][y + j].rgbtGreen;
+                        sumBy += gy[x + 1][y + 1] * new[x + i][y + j].rgbtBlue;
+                    }
                 }
             }
 
@@ -137,7 +139,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtRed = (red > 255) ? 255 : red;
             image[i][j].rgbtGreen = (green > 255) ? 255 : green;
             image[i][j].rgbtBlue = (blue > 255) ? 255 : blue;
-
         }
     }
 
