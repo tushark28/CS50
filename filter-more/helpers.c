@@ -59,7 +59,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int sumR = 0;
             int sumG = 0;
             int sumB = 0;
-
+            int count =0;
             for (int x = -1; x < 2; x++)
             {
                 for (int y = -1; y < 2; y++)
@@ -70,13 +70,14 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         sumR += new[i + x][y + j].rgbtRed;
                         sumG += new[i + x][y + j].rgbtGreen;
                         sumB += new[i + x][j + y].rgbtBlue;
+                        count++;
                     }
                 }
             }
 
-            int avgR = round(sumR / (float)(reducedi * reducedj));
-            int avgG = round(sumG / (float)(reducedi * reducedj));
-            int avgB = round(sumB / (float)(reducedi * reducedj));
+            int avgR = round(sumR / (float)(count));
+            int avgG = round(sumG / (float)(count));
+            int avgB = round(sumB / (float)(count));
 
             image[i][j].rgbtRed = avgR;
             image[i][j].rgbtGreen = avgG;
