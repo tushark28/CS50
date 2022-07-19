@@ -58,6 +58,7 @@ int main(int argc, char *argv[])
         }
     }
 
+    //closing all the files.
     fclose(output);
     fclose(input);
     return 0;
