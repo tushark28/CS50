@@ -7,8 +7,8 @@ typedef uint8_t BYTE;
 int main(int argc, char *argv[])
 {
     FILE *input = fopen(argv[1], "r");
-
-    while (fread(buffer, 1, BLOCK_SIZE, raw_file) == BLOCK_SIZE)
+    BYTE buffer[512];
+    while (fread(&buffer, 1, BLOCK_SIZE, input) == BLOCK_SIZE)
     {
 
     }
