@@ -1,54 +1,7 @@
 #include <math.h>
 #include "helpers.h"
+
 // Convert image to grayscale
-int ired(int ci, int arr[], int height)
-{
-
-    if (ci == 0)
-    {
-        arr[0] = 0;
-        arr[1] = 1;
-        return 2;
-    }
-    else if (ci == height - 1)
-    {
-        arr[0] = height - 1;
-        arr[1] = height - 2;
-        return 2;
-    }
-    else
-    {
-        arr[0] = ci;
-        arr[1] = ci - 1;
-        arr[2] = ci + 1;
-        return 3;
-    }
-}
-
-int jred(int cj, int arr2[], int width)
-{
-
-    if (cj == width - 1)
-    {
-        arr2[0] = width - 1;
-        arr2[1] = width - 2;
-        return 2;
-    }
-    else if (cj == 0)
-    {
-        arr2[0] = 0;
-        arr2[1] = 1;
-        return 2;
-    }
-    else
-    {
-        arr2[0] = cj;
-        arr2[1] = cj - 1;
-        arr2[2] = cj + 1;
-        return 3;
-    }
-}
-
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int i = 0; i < height; i++)
@@ -98,16 +51,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             new[i][j] = image[i][j];
         }
     }
+    
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            int arr[3];
-            int arr2[3];
-
-            int reducedi = ired(i, arr, height);
-            int reducedj = jred(j, arr2, width);
-
             int sumR = 0;
             int sumG = 0;
             int sumB = 0;
@@ -124,9 +72,11 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                             }
                 }
             }
+
             int avgR = round(sumR / (float)(reducedi * reducedj));
             int avgG = round(sumG / (float)(reducedi * reducedj));
             int avgB = round(sumB / (float)(reducedi * reducedj));
+
             image[i][j].rgbtRed = avgR;
             image[i][j].rgbtGreen = avgG;
             image[i][j].rgbtBlue = avgB;
@@ -138,30 +88,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
-    // int gx[3][3];
-    // int gy[3][3];
-    // gx[0][0] = -1;
-    // gx[0][1] = 0;
-    // gx[0][2] = 1;
-    // gx[1][0] = -2;
-    // gx[1][1] = 0;
-    // gx[1][2] = 2;
-    // gx[2][0] = -1;
-    // gx[2][1] = 0;
-    // gx[2][2] = 1;
-
-    // gy[0][0] = -1;
-    // gy[0][1] = -2;
-    // gy[0][2] = -1;
-    // gy[1][0] = 0;
-    // gy[1][1] = 0;
-    // gy[1][2] = 0;
-    // gy[2][0] = 1;
-    // gy[2][1] = 2;
-    // gy[2][2] = 1;
-
     int gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
     int gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
+
     RGBTRIPLE new[height][width];
     for (int i = 0; i < height; i++)
     {
@@ -170,6 +99,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             new[i][j] = image[i][j];
         }
     }
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -199,29 +129,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                             }
                 }
             }
+
             int red = round(sqrt((sumRx * sumRx) + (sumRy * sumRy)));
-            if(red> 255){
-                image[i][j].rgbtRed = 255;
-            }
-            else{
-            image[i][j].rgbtRed = red;
-            }
-
             int green = round(sqrt((sumGx * sumGx) + (sumGy * sumGy)));
-            if(green > 255){
-                image[i][j].rgbtGreen = 255;
-            }
-            else{
-            image[i][j].rgbtGreen = green;
-            }
-
             int blue = round(sqrt((sumBx * sumBx) + (sumBy * sumBy)));
-            if(blue>255){
-                image[i][j].rgbtBlue = 255;
-            }
-            else{
-            image[i][j].rgbtBlue = blue;
-            }
+
+            image[i][j].rgbtRed = (red > 255) ? 255 : red;
+            image[i][j].rgbtGreen = (green > 255) ? 255 : green;
+            image[i][j].rgbtBlue = (blue > 255) ? 255 : blue;
 
         }
     }
