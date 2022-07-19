@@ -195,13 +195,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                             if(j-y<0){
                                 continue;
                             }
-                            sumRx += gx[x+1][y+1] * new[x+1][y+1].rgbtRed;
-                            sumGx += gx[x+1][y+1] * new[x+1][y+1].rgbtGreen;
-                            sumBx += gx[x+1][y+1] * new[x+1][y+1].rgbtBlue;
+                            sumRx += gx[x+1][y+1] * new[i+x][y+j].rgbtRed;
+                            sumGx += gx[x+1][y+1] * new[x+i][y+j].rgbtGreen;
+                            sumBx += gx[x+1][y+1] * new[x+i][y+j].rgbtBlue;
 
-                            sumRy += gy[x+1][y+1] * new[x+1][y+1].rgbtRed;
-                            sumGy += gy[x+1][y+1] * new[x+1][y+1].rgbtGreen;
-                            sumBy += gy[x+1][y+1] * new[x+1][y+1].rgbtBlue;
+                            sumRy += gy[x+1][y+1] * new[x+i][y+j].rgbtRed;
+                            sumGy += gy[x+1][y+1] * new[x+i][y+j].rgbtGreen;
+                            sumBy += gy[x+1][y+1] * new[x+i][y+j].rgbtBlue;
 
                 }
             }
