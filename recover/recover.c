@@ -15,7 +15,8 @@ int main(int argc, char *argv[])
             if(jpegflag==0){
                 char filename[8];
                 sprintf(filename,"%03i.jpg",jpegflag);
-                fwrite(&buffer,1,BLOCK_SIZE,)
+                FILE* output = fopen(filename,"w");
+                fwrite(&buffer,1,BLOCK_SIZE,output);
             }
         }
     }
