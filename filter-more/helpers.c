@@ -213,7 +213,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 image[i][j].rgbtGreen = 255;
             }
             else{
-            image[i][j].rgbtGreen = green ;
+            image[i][j].rgbtGreen = green;
             }
 
             int blue = round(sqrt((sumBx * sumBx) + (sumBy * sumBy)));
