@@ -185,28 +185,23 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int sumGy = 0;
             int sumBy = 0;
 
-            for (int x = 0; x < reducedi; x++)
+            for (int x = -1; x < 2; x++)
             {
-                for (int y = 0; y < reducedj; y++)
+                for (int y = -1; y < 2; y++)
                 {
-                            
-                            sumRx += gx[temp1][temp2] * new[arr[x]][arr2[y]].rgbtRed;
-                            sumGx += gx[temp1][temp2] * new[arr[x]][arr2[y]].rgbtGreen;
-                            sumBx += gx[temp1][temp2] * new[arr[x]][arr2[y]].rgbtBlue;
-
-                            sumRy += gy[temp1][temp2] * new[arr[x]][arr2[y]].rgbtRed;
-                            sumGy += gy[temp1][temp2] * new[arr[x]][arr2[y]].rgbtGreen;
-                            sumBy += gy[temp1][temp2] * new[arr[x]][arr2[y]].rgbtBlue;
-
+                            if(i-x<0){
+                                continue;
                             }
+                            if(j-y<0){
+                                continue;
+                            }
+                            sumRx += gx[x+1][y+1] * new[x+1][y+1].rgbtRed;
+                            sumGx += gx[x+1][y+1] * new[x+1][y+1].rgbtGreen;
+                            sumBx += gx[x+1][y+1] * new[x+1][y+1].rgbtBlue;
 
-                            sumRx += gx[x][y] * new[arr[x]][arr2[y]].rgbtRed;
-                            sumGx += gx[x][y] * new[arr[x]][arr2[y]].rgbtGreen;
-                            sumBx += gx[x][y] * new[arr[x]][arr2[y]].rgbtBlue;
-
-                            sumRy += gy[x][y] * new[arr[x]][arr2[y]].rgbtRed;
-                            sumGy += gy[x][y] * new[arr[x]][arr2[y]].rgbtGreen;
-                            sumBy += gy[x][y] * new[arr[x]][arr2[y]].rgbtBlue;
+                            sumRy += gy[x+1][y+1] * new[x+1][y+1].rgbtRed;
+                            sumGy += gy[x+1][y+1] * new[x+1][y+1].rgbtGreen;
+                            sumBy += gy[x+1][y+1] * new[x+1][y+1].rgbtBlue;
 
                 }
             }
