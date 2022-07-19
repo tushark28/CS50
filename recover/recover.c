@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     FILE *input = fopen(argv[1], "r");
     BYTE buffer[BLOCK_SIZE];
-    int jpegflag = 0;
+    int jpegflag = 0,jpegcounter=1;
     FILE *output;
     while (fread(&buffer, 1, BLOCK_SIZE, input) == BLOCK_SIZE)
     {
@@ -19,19 +19,14 @@ int main(int argc, char *argv[])
                 fclose(output);
             }
             char filename[8];
-            sprintf(filename, "%03i.jpg", jpegflag);
+            sprintf(filename, "%03i.jpg", jpegcounter);
             output = fopen(filename, "w");
             fwrite(&buffer, 1, BLOCK_SIZE, output);
             jpegflag=1;
+            jpegcounter++;
+        }
+        else{
 
-            else
-            {
-                fclose(output);
-                char filename[8];
-                sprintf(filename, "%03i.jpg", jpegflag);
-                FILE *output = fopen(filename, "w");
-                fwrite(&buffer, 1, BLOCK_SIZE, output);
-            }
         }
     }
 
