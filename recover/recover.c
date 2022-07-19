@@ -12,6 +12,10 @@ int main(int argc, char *argv[])
         return 1;
     }
     FILE *input = fopen(argv[1], "r");
+    if(input == NULL){
+        printf("Empty forensic image");
+        return 1;
+    }
     BYTE buffer[BLOCK_SIZE];
     int jpegflag = 0,jpegcounter=-1;
     FILE *output;
