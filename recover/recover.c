@@ -18,6 +18,9 @@ int main(int argc, char *argv[])
                 FILE* output = fopen(filename,"w");
                 fwrite(&buffer,1,BLOCK_SIZE,output);
             }
+            else{
+                
+            }
         }
     }
 
