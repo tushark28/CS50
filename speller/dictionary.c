@@ -85,6 +85,7 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
+    int loopcount=0;
     for (int i = 0; i < N; i++)
     {
         node* head = table[i];
@@ -92,9 +93,11 @@ bool unload(void)
         {
             head=head->next;
             free(head);
+            loopcount++;
         }
+
     }
-    if(count==0){
+    if(count!=loopcount){
         return false;
     }
     return true;
