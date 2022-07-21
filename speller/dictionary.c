@@ -53,6 +53,10 @@ bool load(const char *dictionary)
         if(table[hash_place]->next == NULL){
             strcpy(table[hash_place]->word,word);
         }
+        else{
+            node* head = table[hash_place];
+            
+        }
     }
 
 
