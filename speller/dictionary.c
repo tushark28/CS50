@@ -50,7 +50,9 @@ bool load(const char *dictionary)
         if(ptr == NULL){
             return false;
         }
-        if(table[hash_place]
+        if(table[hash_place]->next == NULL){
+            
+        }
     }
 
 
