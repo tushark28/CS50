@@ -59,7 +59,6 @@ bool load(const char *dictionary)
         head = ptr;
     }
 }
-}
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
