@@ -20,18 +20,20 @@ const unsigned int N = 26;
 
 // Hash table
 node *table[N];
-unsigned int count =0;
+unsigned int count = 0;
 // Returns true if word is in dictionary, else false
 bool check(const char *word)
 {
     // TODO
     unsigned int hash_place = hash(word);
-    node* head = table[hash_place];
-    while(head->next != NULL){
-        if(strcasecmp(head->word,word)==0){
+    node *head = table[hash_place];
+    while (head->next != NULL)
+    {
+        if (strcasecmp(head->word, word) == 0)
+        {
             return true;
         }
-        head= head->next;
+        head = head->next;
     }
     return false;
 }
@@ -47,7 +49,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    FILE * dic = fopen(dictionary, "r");
+    FILE *dic = fopen(dictionary, "r");
     if (dic == NULL)
     {
         return false;
@@ -63,8 +65,8 @@ bool load(const char *dictionary)
         }
 
         node *head = table[hash_place];
-        strcpy(ptr->word,word);
-        ptr->next= head;
+        strcpy(ptr->word, word);
+        ptr->next = head;
         head = ptr;
         count++;
     }
@@ -83,6 +85,17 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    
-    return false;
+    if(count==0){
+        return false;
+    }
+    for (int i = 0; i < N; i++)
+    {
+        node* head = table[i];
+        while (head->next != NULL)
+        {
+            head=head->next;
+            free(head);
+        }
+    }
+    return true;
 }
