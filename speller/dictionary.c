@@ -85,9 +85,6 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    if(count==0){
-        return false;
-    }
     for (int i = 0; i < N; i++)
     {
         node* head = table[i];
@@ -96,6 +93,9 @@ bool unload(void)
             head=head->next;
             free(head);
         }
+    }
+    if(count==0){
+        return false;
     }
     return true;
 }
