@@ -26,7 +26,10 @@ bool check(const char *word)
 {
     // TODO
     unsigned int hash_place = hash(word);
-    
+    node* head = table[hash_place];
+    while(head->next != NULL){
+        
+    }
     return false;
 }
 
