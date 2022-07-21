@@ -58,6 +58,8 @@ bool load(const char *dictionary)
         ptr->next= head;
         head = ptr;
     }
+    fclose(dic);
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
