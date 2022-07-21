@@ -55,7 +55,7 @@ bool load(const char *dictionary)
 
         node *head = table[hash_place];
         strcpy(ptr->word,word);
-        ptr->next= head->next;
+        ptr->next= head;
         head = ptr;
     }
 }
