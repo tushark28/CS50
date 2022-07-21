@@ -43,7 +43,12 @@ bool load(const char *dictionary)
     if(dic==NULL){
         return false;
     }
-
+    char word[LENGTH+1];
+    while(fscanf(dic,"%s",word)!= EOF){
+        unsigned int hash_place = hash(word);
+        node * ptr = (node*)malloc(sizeof(node));
+        table
+    }
 
 
 }
