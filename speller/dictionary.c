@@ -40,7 +40,6 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    count++;
     return toupper(word[0]) - 'A';
 }
 
@@ -67,6 +66,7 @@ bool load(const char *dictionary)
         strcpy(ptr->word,word);
         ptr->next= head;
         head = ptr;
+        count++;
     }
     fclose(dic);
     return true;
@@ -83,5 +83,6 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
+    
     return false;
 }
