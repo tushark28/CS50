@@ -28,7 +28,10 @@ bool check(const char *word)
     unsigned int hash_place = hash(word);
     node* head = table[hash_place];
     while(head->next != NULL){
-        
+        if(strcasecmp(head->word,word)==0){
+            return true;
+        }
+        head= head->next;
     }
     return false;
 }
