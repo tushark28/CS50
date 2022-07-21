@@ -25,6 +25,8 @@ unsigned int count =0;
 bool check(const char *word)
 {
     // TODO
+    unsigned int hash_place = hash(word);
+    
     return false;
 }
 
