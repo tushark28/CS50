@@ -27,7 +27,7 @@ bool check(const char *word)
     // TODO
     unsigned int hash_place = hash(word);
     node *head = table[hash_place];
-    while (head->next != NULL)
+    while (head != NULL)
     {
         if (strcasecmp(head->word, word) == 0)
         {
@@ -89,7 +89,7 @@ bool unload(void)
     for (int i = 0; i < N; i++)
     {
         node* head = table[i];
-        while (head->next != NULL)
+        while (head != NULL)
         {
             head=head->next;
             free(head);
