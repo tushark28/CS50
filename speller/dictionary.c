@@ -98,8 +98,9 @@ bool unload(void)
         }
 
     }
-    if(count!=loopcount){
-        return false;
+    if(count==loopcount){
+        return true;
     }
-    return true;
+    return false;
+
 }
