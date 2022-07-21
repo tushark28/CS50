@@ -91,8 +91,9 @@ bool unload(void)
         node* head = table[i];
         while (head != NULL)
         {
+            node* wastage = head;
             head=head->next;
-            free(head);
+            free(wastage);
             loopcount++;
         }
 
