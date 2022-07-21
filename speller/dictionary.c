@@ -47,6 +47,9 @@ bool load(const char *dictionary)
     while(fscanf(dic,"%s",word)!= EOF){
         unsigned int hash_place = hash(word);
         node * ptr = (node*)malloc(sizeof(node));
+        if(ptr == NULL){
+            return false;
+        }
         
     }
 
