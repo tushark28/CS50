@@ -2,7 +2,9 @@
 
 #include <ctype.h>
 #include <stdbool.h>
-
+#include <string.h>
+#include <strings.h>
+#include <stdlib.h>
 #include "dictionary.h"
 
 // Represents a node in a hash table
@@ -41,7 +43,8 @@ bool load(const char *dictionary)
     if(dic==NULL){
         return false;
     }
-    
+
+
 
 }
 
