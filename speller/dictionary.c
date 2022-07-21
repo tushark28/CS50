@@ -55,7 +55,7 @@ bool load(const char *dictionary)
         }
         else{
             node* head = table[hash_place];
-            
+            ptr->
         }
     }
 
