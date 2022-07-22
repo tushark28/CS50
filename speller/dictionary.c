@@ -59,15 +59,15 @@ bool load(const char *dictionary)
     {
         unsigned int hash_place = hash(word);
         node *ptr = (node *)malloc(sizeof(node));
-        if (ptr == NULL)
-        {
-            return false;
-        }
 
         strcpy(ptr->word, word);
         node *head = table[hash_place];
         ptr->next = head;
         head = ptr;
+        if (ptr == NULL)
+        {
+            return false;
+        }
         count++;
     }
     fclose(dic);
