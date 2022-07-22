@@ -67,7 +67,7 @@ bool load(const char *dictionary)
         strcpy(ptr->word, word);
         node *head = table[hash_place];
         ptr->next = head;
-        head = ptr;
+        table[hash_place] = ptr;
         count++;
     }
     fclose(dic);
