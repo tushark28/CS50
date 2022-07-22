@@ -84,22 +84,21 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    int loopcount=0;
+    int loopcount = 0;
     for (int i = 0; i < N; i++)
     {
-        node* head = table[i];
+        node *head = table[i];
         while (head != NULL)
         {
-            node* wastage = head;
-            head=head->next;
+            node *wastage = head;
+            head = head->next;
             free(wastage);
             loopcount++;
         }
-
     }
-    if(count==loopcount){
+    if (count == loopcount)
+    {
         return true;
     }
     return false;
-
 }
