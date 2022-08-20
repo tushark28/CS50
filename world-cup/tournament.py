@@ -19,7 +19,7 @@ def main():
     file= open(sys.argv[1],"r")
     while(csv.DictReader(file)):
         csv.DictReader(file)
-        
+        teams.append()
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
