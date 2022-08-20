@@ -16,7 +16,7 @@ def main():
 
     teams = []
     # TODO: Read teams into memory from file
-    open(sys.argv[1])
+    file= open(sys.argv[1],"r")
     
 
     counts = {}
