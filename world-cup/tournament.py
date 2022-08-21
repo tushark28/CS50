@@ -25,9 +25,11 @@ def main():
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
-    file
+    reader = csv.DictReader(file)
+    counts['uru'] = 0
     for teamm in reader:
-
+        temp = teamm[team]
+        counts[temp] = 0
     print(counts)
     #simulate_tournament(teams)
     # Print each team's chances of winning, according to simulation
