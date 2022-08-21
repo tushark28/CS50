@@ -21,8 +21,8 @@ def main():
     for teamm in reader:
         dict={}
         dict[teamm['team']]= int(teamm['rating'])
-        teams += dict
-    print(teams[0])
+        teams.append(dict)
+    print(teams)
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
 
