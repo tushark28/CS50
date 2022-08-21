@@ -67,10 +67,13 @@ def simulate_tournament(teams):
     if len(winners)==1:
         return winners[0]
     else:
-        new = {}
+        new = []
         for i in winners:
-            if i in teams
-        return simulate_tournament(winners)
+            if i in teams:
+                dict ={}
+                dict[teams[i]] = teams['rating']
+                new.append(dict)
+        return simulate_tournament(new)
 
 if __name__ == "__main__":
     main()
