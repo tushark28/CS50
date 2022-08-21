@@ -21,8 +21,7 @@ def main():
     next(reader)
     for teamm in reader:
         dict = {}
-        str = teamm[0]
-        dict[str] = int(teamm[1])
+        dict += {row[team],row[rating]}
     teams[0] = dict
     print(teams)
     counts = {}
