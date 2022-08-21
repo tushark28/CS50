@@ -69,11 +69,11 @@ def simulate_tournament(teams):
     if len(winners)==1:
         return winners[0]
     else:
-        for team in teams:
+        for team in copy:
             if team in winners:
                 continue
             else:
-                copy.remove(teams)
+                copy.remove()
         return simulate_tournament(copy)
 
 if __name__ == "__main__":
