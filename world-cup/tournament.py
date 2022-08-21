@@ -18,7 +18,6 @@ def main():
     # TODO: Read teams into memory from file
     file= open(sys.argv[1],"r")
     reader = csv.DictReader(file)
-    next(reader)
     for teamm in reader:
         dict = {}
         dict = {teamm['team'],int(teamm['rating'])}
