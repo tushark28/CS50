@@ -73,7 +73,7 @@ def simulate_tournament(teams):
             if team in winners:
                 continue
             else:
-                copy.remove()
+                copy.remove(team)
         return simulate_tournament(copy)
 
 if __name__ == "__main__":
