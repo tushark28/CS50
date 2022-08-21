@@ -31,7 +31,8 @@ def main():
     for teamm in reader:
         counts[teamm['team']]= 0
     for i in range(N):
-        simulate_tournament(teams)
+        temp=simulate_tournament(teams)
+        counts[temp] +=1
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
@@ -62,7 +63,10 @@ def simulate_round(teams):
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
     # TODO
-    simulate_round(teams)
+    if len(teams) ==1:
+        return teams[0]
+    else:
+        return simulate_tournament(teams)
 
 if __name__ == "__main__":
     main()
