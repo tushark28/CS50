@@ -69,7 +69,6 @@ def simulate_tournament(teams):
     if len(winners)==1:
         return winners[0]
     else:
-        new = []
         for i in winners:
             if winners[i] in teams:
                 continue
