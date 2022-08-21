@@ -30,9 +30,11 @@ def main():
     reader = csv.DictReader(file)
     for teamm in reader:
         counts[teamm['team']]= 0
-    for i in range(N):
-        temp=simulate_tournament(teams)
-        counts[temp] +=1
+    if 'Uruguay' in teams[0]:
+        print('yes')
+    #for i in range(N):
+        #temp=simulate_tournament(teams)
+        #counts[temp] +=1
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
