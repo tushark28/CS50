@@ -31,7 +31,6 @@ def main():
     for teamm in reader:
         counts[teamm['team']]= 0
     simulate_tournament(teams)
-
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
