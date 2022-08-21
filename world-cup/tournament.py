@@ -69,9 +69,9 @@ def simulate_tournament(teams):
     else:
         new = []
         for i in winners:
-            if i in teams:
+            if winners[i] in teams:
                 dict ={}
-                dict[teams[i]] = teams['rating']
+                dict[teams[winners[i]]] = teams['rating']
                 new.append(dict)
         return simulate_tournament(new)
 
