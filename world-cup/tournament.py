@@ -22,16 +22,16 @@ def main():
         dict={}
         dict[teamm['team']]= int(teamm['rating'])
         teams.append(dict)
-
+    file.close()
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
-    counts['uru'] = 0
+
+    file = open(sys.argv[1],"r")
+    reader = csv.DictReader(file)
     for teamm in reader:
-        temp = teamm[team]
-        counts[temp] = 0
-    print(counts)
-    #simulate_tournament(teams)
-    
+        counts[teamm['team']]= 0
+    simulate_tournament(teams)
+
     # Print each team's chances of winning, according to simulation
     for team in sorted(counts, key=lambda team: counts[team], reverse=True):
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
@@ -62,7 +62,7 @@ def simulate_round(teams):
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
     # TODO
-
+    simulate_round(teams)
 
 if __name__ == "__main__":
     main()
