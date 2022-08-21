@@ -26,7 +26,7 @@ def main():
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
     for teamm in reader:
-        counts[teamm['team']] = 0
+        
     print(counts)
     #simulate_tournament(teams)
     # Print each team's chances of winning, according to simulation
