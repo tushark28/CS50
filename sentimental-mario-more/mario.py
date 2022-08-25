@@ -13,3 +13,5 @@ for i in range(height):
     print((i+1)*"#")
     # for two spaces
     print("  ", end="")
+    # for "#" symbol
+    print((i+1)*"#")
