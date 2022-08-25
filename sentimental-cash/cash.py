@@ -15,11 +15,11 @@ if (change >= 0.25 and change != 0):
 
 if (change >= 0.10 and change != 0):
     coin += change//0.10
-    change = change%0.10
+    change = round(change % 0.10,2)
 
 if (change >= 0.05 and change != 0):
     coin += change//0.05
-    change = change%0.05
+    change = round(change % 0.05,2)
 
 if (change >= 0.01 and change != 0):
     coin += change//0.01
