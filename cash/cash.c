@@ -41,7 +41,7 @@ int get_cents(void)
     int cents;
     while (true)
     {
-        cents = get_int("Change owed:");
+        cents = get_int("Change owed: ");
         if(cents>=0){
             break;
         }
