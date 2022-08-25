@@ -24,5 +24,6 @@ if (change >= 0.05 and change != 0):
 if (change >= 0.01 and change != 0):
     coin += change//0.01
     change = change%0.01
+
 print(coin)
 
