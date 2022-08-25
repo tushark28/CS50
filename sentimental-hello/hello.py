@@ -1,2 +1,3 @@
 # TODO
-print(f'hello, {input("What is your name?\n")}')
+print("What is your name?")
+print(f'hello, {input()}')
