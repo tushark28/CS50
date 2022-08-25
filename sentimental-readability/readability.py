@@ -5,7 +5,7 @@ from cs50 import get_string
 user_input = get_string("Text: ")
 
 letters = 0
-words = 1  # Initialize to 1 because it will not gonna count 1st word
+words = 1 
 sentences = 0
 # Loop over user_input and get the number of letters, words and sentences in the user_input
 for i in user_input:
