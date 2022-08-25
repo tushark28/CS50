@@ -1,2 +1,4 @@
 # TODO
-height = int(input())
+height = int(input(Height: ))
+for i in range(height):
+    
