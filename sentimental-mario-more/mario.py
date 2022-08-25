@@ -10,7 +10,7 @@ for i in range(height):
     # for spaces.
     print((height-i-1)*' ', end="")
     # for "#" symbol
-    print((i+1)*"#")
+    print((i+1)*"#", end="")
     # for two spaces
     print("  ", end="")
     # for "#" symbol
