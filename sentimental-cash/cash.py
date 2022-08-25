@@ -7,7 +7,7 @@ while True:
     if change>=0:
         break
 coin = 0
-if (change>=25 and change!=0):
+if (change>=0.25 and change!=0):
     coin += change//0.25
     change = change%0.25
 
