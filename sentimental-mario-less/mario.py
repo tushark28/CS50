@@ -1,2 +1,2 @@
 # TODO
-
+height = int(input())
