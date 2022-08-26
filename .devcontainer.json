@@ -13,7 +13,7 @@
     "tomoki1207.pdf", 
     "vsls-contrib.gitdoc"
   ], 
-  "image": "ghcr.io/cs50/codespace:c09711969f19a7a719d177419bf12822cc579728", 
+  "image": "ghcr.io/cs50/codespace:8e75ce22d07ca8114fc2a93e6f2660e865e1a629", 
   "postCreateCommand": "/opt/cs50/bin/postCreateCommand", 
   "settings": {
     "C_Cpp.autocomplete": "Disabled", 
@@ -27,14 +27,18 @@
     "editor.emptySelectionClipboard": false, 
     "editor.folding": false, 
     "editor.foldingHighlight": false, 
+    "editor.guides.indentation": false, 
     "editor.hover.enabled": false, 
     "editor.lightbulb.enabled": false, 
     "editor.matchBrackets": "near", 
     "editor.minimap.enabled": false, 
     "editor.occurrencesHighlight": false, 
     "editor.parameterHints.enabled": false, 
-    "editor.quickSuggestions": false, 
-    "editor.renderIndentGuides": false, 
+    "editor.quickSuggestions": {
+      "comments": "off", 
+      "other": "off", 
+      "strings": "off"
+    }, 
     "editor.renderWhitespace": "selection", 
     "editor.selectionHighlight": false, 
     "editor.semanticTokenColorCustomizations": {
@@ -79,6 +83,41 @@
     "html.suggest.html5": false, 
     "javascript.suggest.enabled": false, 
     "javascript.validate.enable": false, 
+    "presentation-mode.active": {
+      "commands": [
+        "workbench.action.closeSidebar"
+      ], 
+      "editor.matchBrackets": "never", 
+      "editor.minimap.enabled": false, 
+      "editor.scrollbar.verticalScrollbarSize": 0, 
+      "workbench.activityBar.visible": false, 
+      "workbench.colorCustomizations": {
+        "[GitHub Dark Default]": {
+          "activityBar.background": "#000", 
+          "editor.background": "#000", 
+          "editor.lineHighlightBackground": "#0000", 
+          "editor.lineHighlightBorder": "#0000", 
+          "panel.background": "#000", 
+          "sideBar.background": "#000", 
+          "terminal.background": "#000"
+        }, 
+        "[GitHub Light Default]": {
+          "activityBar.background": "#fff", 
+          "editor.background": "#fff", 
+          "editor.lineHighlightBackground": "#fff0", 
+          "editor.lineHighlightBorder": "#fff0", 
+          "panel.background": "#fff", 
+          "sideBar.background": "#fff", 
+          "terminal.background": "#fff"
+        }
+      }, 
+      "workbench.statusBar.visible": false
+    }, 
+    "presentation-mode.inactive": {
+      "commands": [
+        "workbench.action.focusSideBar"
+      ]
+    }, 
     "problems.decorations.enabled": false, 
     "remote.otherPortsAttributes": {
       "onAutoForward": "silent"
@@ -93,13 +132,15 @@
       "JavaScript Debug Terminal": null, 
       "bash": {
         "args": [
-          "-l"
+          "--login"
         ], 
+        "icon": "terminal", 
         "path": "bash"
       }
     }, 
     "terminal.integrated.sendKeybindingsToShell": true, 
     "terminal.integrated.shellIntegration.decorationsEnabled": "never", 
+    "terminal.integrated.shellIntegration.enabled": true, 
     "terminal.integrated.tabs.description": "${task}${separator}${local}", 
     "terminal.integrated.tabs.showActiveTerminal": "never", 
     "window.autoDetectColorScheme": true, 
@@ -116,7 +157,6 @@
     }, 
     "workbench.editor.closeOnFileDelete": true, 
     "workbench.editor.untitled.hint": "hidden", 
-    "workbench.enableExperiments": false, 
     "workbench.iconTheme": "vs-minimal", 
     "workbench.preferredDarkColorTheme": "Default Dark+", 
     "workbench.preferredLightColorTheme": "Default Light+", 
