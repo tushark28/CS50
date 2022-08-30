@@ -1,1 +1,1 @@
-select count(name) from songs;
+select name from songs;
