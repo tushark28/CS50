@@ -1,5 +1,5 @@
 select
-    count(name)
+    name
 from
     people
 where
@@ -33,3 +33,4 @@ where
                     )
             )
     )
+and name != "Kevin Bacon";
