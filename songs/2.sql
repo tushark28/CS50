@@ -1,1 +1,1 @@
-select name from songs order by tempo
+select name from songs order by tempo;
