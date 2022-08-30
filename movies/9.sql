@@ -1,5 +1,5 @@
 SELECT
-    count(name)
+    name
 FROM
     people
 WHERE
@@ -16,6 +16,7 @@ WHERE
                     movies
                 WHERE
                     year = 2004
+                ORDER BY
+                    year
             )
-
     );
