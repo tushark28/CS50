@@ -16,7 +16,7 @@ WHERE
                     movies
                 WHERE
                     year = 2004
-                ORDER BY
-                    year
             )
-    );
+    )
+ORDER BY
+    birth;
