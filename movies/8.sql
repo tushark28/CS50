@@ -1,20 +1,13 @@
 SELECT
-    name
+    movie_id
 FROM
-    people
+    stars
 WHERE
-    id IN (
+    movie_id = (
         SELECT
-            movie_id
+            id
         FROM
-            stars
+            movies
         WHERE
-            movie_id = (
-                SELECT
-                    id
-                FROM
-                    movies
-                WHERE
-                    title = "Toy Story"
-            )
+            title = "Toy Story"
     );
