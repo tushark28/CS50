@@ -5,7 +5,7 @@ FROM
 WHERE
     id IN (
         SELECT
-            movie_id
+            person_id
         FROM
             stars
         WHERE
