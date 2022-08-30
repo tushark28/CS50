@@ -15,7 +15,7 @@ WHERE
                 from
                     people
                 where
-                    name in("Johnny Depp","Helena Bonham Carter")
+                    name = "Johnny Depp"
+                    and name = "Helena Bonham Carter"
             )
-
     )
