@@ -8,4 +8,6 @@ where
     year = 2021
     and month = 7
     and day = 28
-    and street = "Humphrey Street";
+    and street = "Humphrey Street"
+union all
+select id from people where id = 1;
