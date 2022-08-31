@@ -1,7 +1,7 @@
 -- Keep a log of any SQL queries you execute as you solve the mystery.
 --for description about the crime.
 SELECT
-    count(description
+    description
 from
     crime_scene_reports
 where
