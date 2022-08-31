@@ -66,3 +66,5 @@ where
     )
 
 select * from phone_calls where year = 2021 and month = 7 and day = 28 and duration <= 60;
+
+select * from flights where year = 2021 and month = 7 and day = 29;
