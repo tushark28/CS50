@@ -74,3 +74,5 @@ select * from passengers where flight_id = 36;
 select * from airports where id = 4;
 
 select * from phone_calls where caller like "(367)%" and year = 2021 and month = 7 and day = 28;
+
+select * from people where phone_number = "(375) 555-8161";
