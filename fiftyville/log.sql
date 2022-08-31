@@ -28,4 +28,4 @@ where
     and month = 7
     and day = 28
     and hour = 10
-    and minute <= 20;
+    and minute <= 25;
