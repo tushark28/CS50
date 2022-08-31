@@ -64,3 +64,5 @@ where
                     and atm_location = "Leggett Street"
             )
     )
+
+select * from phone_calls where year = 2021 and month = 7 and day = 28 and duration <= 60;
