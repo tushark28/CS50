@@ -20,7 +20,7 @@ where
     and day = 28;
 
 select
-    license_plate
+    license_plate, activity
 from
     bakery_security_logs
 where
@@ -28,4 +28,4 @@ where
     and month = 7
     and day = 28
     and hour = 10
-    and minute <= 15;
+    and minute <= 20;
