@@ -64,14 +64,3 @@ where
                     and atm_location = "Leggett Street"
             )
     )
-intersect
-select
-    *
-from
-    bakery_security_logs
-where
-    year = 2021
-    and month = 7
-    and day = 28
-    and hour = 10
-    and minute <= 25;
