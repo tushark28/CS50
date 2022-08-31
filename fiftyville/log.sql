@@ -9,7 +9,8 @@ where
     and month = 7
     and day = 28
     and street = "Humphrey Street"
-union all
+union
+all
 select
     transcript
 from
@@ -18,4 +19,14 @@ where
     year = 2021
     and month = 7
     and day = 28;
-select license_plate from bakery_security_logs where 
+union all
+select
+    license_plate
+from
+    bakery_security_logs
+where
+    year = 2021
+    and month = 7
+    and day = 28
+    and hour = 10
+    and minute = 15;
