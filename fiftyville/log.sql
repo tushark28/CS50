@@ -40,13 +40,26 @@ where
     and month = 7
     and day = 28
     and atm_location = "Leggett Street";
-select * from people
+
 select
-    account_number
+    *
 from
-    atm_transactions
+    people
 where
-    year = 2021
-    and month = 7
-    and day = 28
-    and atm_location = "Leggett Street";
+    id in(
+        select
+            *
+        from
+        where
+            account_number in(
+                select
+                    account_number
+                from
+                    atm_transactions
+                where
+                    year = 2021
+                    and month = 7
+                    and day = 28
+                    and atm_location = "Leggett Street"
+            )
+    );
