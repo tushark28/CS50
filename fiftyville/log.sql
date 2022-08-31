@@ -32,4 +32,4 @@ where
 
 select
    *
-   from atm_transactions where year = 2021 and month = 7 and day = 28 and atm_location = "Leggett Street"
+   from atm_transactions where year = 2021 and month = 7 and day = 28 and atm_location = "Leggett Street";
