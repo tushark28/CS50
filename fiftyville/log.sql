@@ -20,7 +20,7 @@ where
     and day = 28;
 
 select
-    license_plate, activity
+    *
 from
     bakery_security_logs
 where
