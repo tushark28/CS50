@@ -18,4 +18,4 @@ where
     year = 2021
     and month = 7
     and day = 28;
-select license_plate from bakery_security_logs
+select license_plate from bakery_security_logs where 
