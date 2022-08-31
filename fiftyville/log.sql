@@ -31,3 +31,5 @@ where
     and minute <= 25;
 
 select
+   *
+   from atm_transactions 
