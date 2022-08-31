@@ -48,8 +48,9 @@ from
 where
     id in(
         select
-            *
+            person_id
         from
+            bank_accounts
         where
             account_number in(
                 select
