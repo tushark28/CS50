@@ -63,4 +63,5 @@ where
                     and day = 28
                     and atm_location = "Leggett Street"
             )
-    );
+    )
+intersect
