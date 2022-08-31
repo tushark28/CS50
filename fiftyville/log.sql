@@ -40,7 +40,7 @@ where
     and month = 7
     and day = 28
     and atm_location = "Leggett Street";
-
+select * from people
 select
     account_number
 from
