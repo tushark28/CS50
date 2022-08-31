@@ -70,3 +70,5 @@ select * from phone_calls where year = 2021 and month = 7 and day = 28 and durat
 select * from flights where year = 2021 and month = 7 and day = 29;
 
 select * from passengers where flight_id = 36;
+
+select * from airports where id = 
