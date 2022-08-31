@@ -1,7 +1,7 @@
 -- Keep a log of any SQL queries you execute as you solve the mystery.
 --for description about the crime.
 SELECT
-    description
+    count(description
 from
     crime_scene_reports
 where
@@ -9,5 +9,3 @@ where
     and month = 7
     and day = 28
     and street = "Humphrey Street"
-union all
-select ;
