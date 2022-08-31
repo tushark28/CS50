@@ -32,4 +32,4 @@ where
 
 select
    *
-   from atm_transactions 
+   from atm_transactions where 
