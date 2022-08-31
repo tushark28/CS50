@@ -9,6 +9,7 @@ where
     and month = 7
     and day = 28
     and street = "Humphrey Street"
+union all
 select
     transcript
 from
@@ -17,7 +18,7 @@ where
     year = 2021
     and month = 7
     and day = 28;
-union all
+
 select
     license_plate
 from
