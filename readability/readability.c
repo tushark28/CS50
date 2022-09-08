@@ -7,35 +7,33 @@
 int main(void)
 {
     // Get user input
-    string text = get_string("Text: ");
+    string u_input = get_string("Text: ");
 
     float sentences = 0;
-    float words = 1; // Initialize to 1 because it will not gonna count 1st word
+    float words = 1; // Initialized to 1 otherwise it will not count the 1st word
     float letters = 0;
 
-    // Iterate over text
-    for (int i = 0; i < strlen(text); i++)
+    // Iterate over the user input
+    for (int i = 0; i < strlen(u_input); i++)
     {
-        // Check for sentences
-        if (text[i] == '!' || text[i] == '.' || text[i] == '?')
+        
+        if (u_input[i] == '!' || u_input[i] == '.' || u_input[i] == '?')
         {
             sentences++;
         }
 
-        // Check for words
-        if (text[i] == ' ')
+        if (u_input[i] == ' ')
         {
             words++;
         }
 
-        // Check for letters
-        if (islower(text[i]) || isupper(text[i]))
+        if (islower(u_input[i]) || isupper(u_input[i]))
         {
             letters++;
         }
     }
 
-    float L = 100 * letters / words; // L = Number of letters per 100 words
+    float L = 100 * letters / words;   // L = Number of letters per 100 words
     float S = 100 * sentences / words; // S = Number of sentences per 100 words
 
     // Formula for evaluating grade
