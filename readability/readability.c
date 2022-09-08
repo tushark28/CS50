@@ -9,9 +9,9 @@ int main(void)
     // Get user input
     string text = get_string("Text: ");
 
-    float s = 0;
-    float w = 1; // Initialize to 1 because it will not gonna count 1st word
-    float l = 0;
+    float sentences = 0;
+    float words = 1; // Initialize to 1 because it will not gonna count 1st word
+    float letters = 0;
 
     // Iterate over text
     for (int i = 0; i < strlen(text); i++)
@@ -19,26 +19,26 @@ int main(void)
         // Check for sentences
         if (text[i] == '!' || text[i] == '.' || text[i] == '?')
         {
-            s++;
+            sentences++;
         }
 
         // Check for words
         if (text[i] == ' ')
         {
-            w++;
+            words++;
         }
 
         // Check for letters
         if (islower(text[i]) || isupper(text[i]))
         {
-            l++;
+            letters++;
         }
     }
 
-    float L = 100 * l / w; // L is Number of letters per 100 words
-    float S = 100 * s / w; // S is Number of sentences per 100 words
+    float L = 100 * letters / words; // L = Number of letters per 100 words
+    float S = 100 * sentences / words; // S = Number of sentences per 100 words
 
-    // Formula to get grade
+    // Formula for evaluating grade
     int index = round(0.0588 * L - 0.296 * S - 15.8);
 
     if (index >= 16)
