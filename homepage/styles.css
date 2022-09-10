@@ -1,11 +1,14 @@
+.heading{
+    background-color: #81877a;
+    font-family: 'Montserrat', sans-serif;
+}
+
 .intro{
     font-size: 30px;
-    background-color: #81877a;
 }
 
 .education{
     font-size: 25px;
-    background-color: #81877a;
 }
 
 body{
