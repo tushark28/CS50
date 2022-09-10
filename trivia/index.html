@@ -8,10 +8,37 @@
     <title>Trivia!</title>
     <script>
         // TODO: Add code to check answers to questions
-        document.querySelector('.ok').addEventListener('click', function () {
-            background - color : ff0000;
-        })
+        //run the script once the DOM is loaded
+        window.addEventListener("load", function () {
 
+            //when correct answer is clicked change button colour to green
+            let correct = document.querySelector('.ok');
+            correct.addEventListener('click', function () {
+                correct.style.backgroundColor = 'green';
+                document.querySelector('#answer1').innerHTML = 'Correct!';
+            });
+
+            //When any incorrect answer is clicked, change color to red.
+            let incorrects = document.querySelectorAll('.not');
+            for (let i = 0; i < incorrects.length; i++) {
+                incorrects[i].addEventListener('click', function () {
+                    incorrects[i].style.backgroundColor = 'red';
+                    document.querySelector('#answer1').innerHTML = 'Incorrect';
+                });
+            }
+
+            //check free response submission
+            document.querySelector('#check').addEventListener('click', function () {
+                let input = document.querySelector('input');
+                if (input.value === 'France') {
+                    input.style.backgroundColor = 'green';
+                    document.querySelector('#answer2').innerHTML = 'Correct!';
+                } else {
+                    input.style.backgroundColor = 'red';
+                    document.querySelector('#answer2').innerHTML = 'Incorrect';
+                }
+            });
+        });
     </script>
 </head>
 
@@ -28,7 +55,7 @@
             <h3>
                 What is the approximate ratio of people to sheep in New Zealand?
             </h3>
-            
+
             <button class="ok">6 people per 1 sheep</button>
             <button class="not">3 people per 1 sheep</button>
             <button class="not">1 person per 3 sheep</button>
