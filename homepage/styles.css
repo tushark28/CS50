@@ -1,25 +1,17 @@
-.heading {
-    background: rgb(2, 0, 36);
-    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(1, 0, 26, 1) 6%,
-            rgba(1, 0, 21, 1) 11%, rgba(1, 0, 15, 1) 18%, rgba(0, 0, 6, 1) 27%, rgba(0, 0, 0, 1) 37%,
-            rgba(17, 17, 17, 1) 43%, rgba(34, 34, 34, 1) 49%, rgba(45, 45, 45, 1) 53%, rgba(54, 54, 54, 1) 56%,
-            rgba(79, 79, 79, 1) 63%, rgba(89, 89, 89, 1) 66%, rgba(110, 110, 110, 1) 70%,
-            rgba(136, 136, 136, 1) 75%, rgba(146, 146, 146, 1) 78%, rgba(174, 174, 174, 1) 86%,
-            rgba(203, 203, 203, 1) 92%, rgba(255, 255, 255, 1) 100%);
+.heading{
+    background-color: #454a52;
 
 }
 
-.intro {
+.intro{
     font-size: 30px;
-    color: #fff;
 }
 
-.education {
+.education{
     font-size: 25px;
-    color: #fff;
 }
 
-body {
+body{
     font-family: 'Montserrat', sans-serif;
     margin-left: auto;
     margin-right: auto;
