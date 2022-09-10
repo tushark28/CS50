@@ -1,8 +1,11 @@
 .intro{
-    font-size: 28px;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
 }
 
 .education{
+    font-size: 25px;
+}
 
+body{
+    font-family: 'Montserrat', sans-serif;
 }
