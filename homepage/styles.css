@@ -3,11 +3,11 @@
     background-color: #313132;
 }
 
-.intro{
+#intro{
     font-size: 30px;
 }
 
-.education{
+h2.education{
     font-size: 25px;
 }
 
@@ -23,4 +23,8 @@ img{
 
 .sport{
     font-size: 20px;
+}
+
+*{
+    
 }
