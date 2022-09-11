@@ -7,8 +7,16 @@
     font-size: 30px;
 }
 
+#intro.hover{
+    color: white;
+}
+
 h2.education{
     font-size: 25px;
+}
+
+.education.hover{
+    color:white;
 }
 
 body{
