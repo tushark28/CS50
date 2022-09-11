@@ -43,3 +43,7 @@ img{
 .icon{
     width:5%;
 }
+
+#space {
+    border-collapse:separate;
+    border-spacing:0 10px;
