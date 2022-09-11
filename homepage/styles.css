@@ -47,3 +47,5 @@ img{
 #space {
     border-collapse:separate;
     border-spacing:0 10px;
+    font-family: monospace;
+    font-size: 20px;
