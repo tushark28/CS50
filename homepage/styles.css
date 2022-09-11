@@ -1,5 +1,5 @@
 .heading{
-    
+
 }
 
 .intro{
@@ -18,4 +18,8 @@ body{
     font-family: 'Montserrat', sans-serif;
     margin-left: auto;
     margin-right: auto;
+}
+
+img{
+    width: 50%;
 }
