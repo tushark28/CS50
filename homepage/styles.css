@@ -1,17 +1,14 @@
 .heading{
-
+    color: #d6d6d6;
+    background-color: #313132;
 }
 
 .intro{
     font-size: 30px;
-    color: #d6d6d6;
-    background-color: #313132;
 }
 
 .education{
     font-size: 25px;
-    color: #d6d6d6;
-    background-color: #313132;
 }
 
 body{
