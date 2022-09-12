@@ -1,6 +1,8 @@
 .heading{
     color: #d6d6d6;
     background-color: #313132;
+    width: 0%;
+    background : -webkit-linear-gradient(to right,#f5f5f7,#)
 }
 
 #intro{
