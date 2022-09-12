@@ -172,8 +172,9 @@
         }
         console.log(width.split("%"));
         const numericwidth = parseint(width.split("%")[0],0);
-        progress.style.width
-    }
+        progress.style.width = `${numericwidth +1}%`;
+    },40);
+}
 </script>
 
 </html>
