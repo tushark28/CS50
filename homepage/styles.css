@@ -1,8 +1,6 @@
 .heading{
     color: #d6d6d6;
     background-color: #313132;
-    background : -webkit-linear-gradient(to right,#f5f5f7,#d6d6d6,#313132);
-    background : linear-gradient(to right,#f5f5f7,#d6d6d6,#313132);
 }
 
 #intro{

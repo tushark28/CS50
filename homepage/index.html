@@ -158,24 +158,9 @@
     </div>
 </body>
 <script>
-    function startProgressBar(){
-    const progress = document.getElementById("progress");
-    progress.style.width = "";
-    const progressinterval = setinterval(() => {
-        const width = progress.style.width;
-        if(!width){
-            progress.style.width = "1%";
-            return;
-        }
-        if(width === "100%"){
-            clearinterval(progressinterval);
-            return;
-        }
-        console.log(width.split("%"));
-        const numericwidth = parseint(width.split("%")[0],0);
-        progress.style.width = `${numericwidth +1}%`;
-    },40);
-}
+    document.querySelector("#intro").addEventListener('click',function(){
+        alert("This is a Resume of Tushar Kamboj");
+    })
 </script>
 
 </html>
