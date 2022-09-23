@@ -30,7 +30,7 @@ def index():
         name = request.form.get("Name")
         month = request.form.get("Month")
         day = request.form.get("Day")
-        db.execute(CREATE)
+        db.execute()
         return redirect("/")
 
     else:
