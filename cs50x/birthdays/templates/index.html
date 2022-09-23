@@ -34,9 +34,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {%
-                            %}
                         <!-- TODO: Loop through the database entries to display them in this table -->
+                        {% for people in peoples%}
+                            <tr>
+                                <td>{{people["name"]}}</td>
+                                <td>{{people["month"]}}</td>
+                                <td>{{people["day"]}}</td>
+                            </tr>
+                        {% end for %}
                     </tbody>
                 </table>
             </div>
