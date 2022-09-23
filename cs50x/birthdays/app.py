@@ -30,7 +30,7 @@ def index():
         name = request.form.get("Name")
         month = request.form.get("Month")
         day = request.form.get("Day")
-        db.execute()
+        db.execute("INSERT INTO birthdays(name, month, day) VALUES(?, ?, ?)" name, month, day)
         return redirect("/")
 
     else:
@@ -38,5 +38,3 @@ def index():
         # TODO: Display the entries in the database on index.html
 
         return render_template("index.html")
-
-
