@@ -117,12 +117,21 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    if request.method = "POST"
-    
-        redirect("/")
-    else
+    # Forget any user_id
+    session.clear()
 
-    return apology("TODO")
+    # User reached route via POST (as by submitting a form via POST)
+    if request.method == "POST":
+
+        # Ensure username was submitted
+        if not request.form.get("username"):
+            return apology("must provide username", 403)
+
+        # Ensure password was submitted
+        elif not request.form.get("password"):
+            return apology("must provide password", 403)
+
+        
 
 
 @app.route("/sell", methods=["GET", "POST"])
