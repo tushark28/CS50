@@ -138,9 +138,10 @@ def register():
         if len(rows) != 0:
             return apology("Username already Taken", 403)
 
+        #registers user into database
+        db.execute("INSERT INTO users(username, hash) VALUES(?, ?)",request.form.get("username"),generate_password_hash(request.form.get("password")))
+
         
-
-
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
