@@ -131,6 +131,13 @@ def register():
         elif not request.form.get("password"):
             return apology("must provide password", 403)
 
+        # Query database for username
+        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+
+        #checks for any existing same username
+        if len(rows) != 0:
+            return apology("Username already Taken", 403)
+
         
 
 
