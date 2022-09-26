@@ -118,11 +118,14 @@ def quote():
             return apology("must provide a Stock Name", 403)
 
         #ensures if stock name is valid
-        rows = lookup(request.form.get("stockname"))
-        if rows == 0:
+        stock = lookup(request.form.get("stockname"))
+        if stock == None:
             return apology("Invalid Stock name", 403)
 
+        return render_template("quoted.html",stock=stock)
 
+    else:
+        return render_template("quote.html")
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
