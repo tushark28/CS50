@@ -6,35 +6,35 @@ int main(void)
     int height;
     do
     {
-        // Input of height of pyramid
+        // Input of Pyramid Height
         height = get_int("Height: ");
     }
     while (height < 1 || height > 8);
 
-    //1st loop to print the row
+    // Loop for Rows
     for (int i = 0; i < height; i++)
     {
-        //2nd loop to give space
+        // Loop for Spaces
         for (int space = 0; space < height - i - 1; space++)
         {
             printf(" ");
         }
-        //3rd loop to print the hash
+        // Loop for Hash Symbols
         for (int hash = 0; hash < i + 1; hash++)
         {
             printf("#");
         }
 
+        // Bridge Space
         printf("  ");
 
-        //4th loop to print hash again after a gap
+        // Loop for Hash Symbols
         for (int hash = 0; hash < i + 1; hash++)
         {
             printf("#");
         }
 
         printf("\n");
-
     }
     return 0;
 }
