@@ -112,7 +112,16 @@ def logout():
 def quote():
     """Get stock quote."""
     if request.method = "POST":
-        
+
+        #Ensures if stock name is submitted
+        if not request.form.get("stockname"):
+            return apology("must provide a Stock Name", 403)
+
+        #ensures if stock name is valid
+        rows = lookup(request.form.get("stockname"))
+        if rows == 0:
+            return apology("Invalid Stock name", 403)
+
 
 
 @app.route("/register", methods=["GET", "POST"])
