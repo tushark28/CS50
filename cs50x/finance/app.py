@@ -58,8 +58,12 @@ def buy():
             return apology("must provide a valid stock symbol", 403)
 
         # Ensure password was submitted
-        elif not request.form.get("numberofshares"):
-            return apology("must provide a quantity of shares to buy", 403)
+        elif not request.form.get("numberofshares") or request.form.get("numberofshares")<=0:
+            return apology("must provide a valid quantity of shares to buy", 403)
+
+        stock = lookup(request.form.get("stocksymbol"))
+        if stock == None:
+            return apology("Invalid Stock name", 403)
 
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
