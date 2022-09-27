@@ -65,6 +65,7 @@ def buy():
         if stock == None:
             return apology("Invalid Stock name", 403)
 
+        elif
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
