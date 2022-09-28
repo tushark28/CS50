@@ -62,17 +62,17 @@ def buy():
     if request.method == "POST":
 
         # Ensure username was submitted
-        if not request.form.get("stocksymbol"):
+        if not request.form.get("symbol"):
             return apology("must provide a valid stock symbol", 400)
 
         # Ensure password was submitted
         elif not request.form.get("shares"):
             return apology("must provide a valid quantity of shares to buy", 400)
 
-        elif request.form.get("shares")<=0:
+        elif int(request.form.get("shares"))<=0:
             return apology("provide a valid share input",400)
 
-        stock = lookup(request.form.get("stocksymbol"))
+        stock = lookup(request.form.get("symbol"))
         current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         current_cash = current_cash_dict[0]["cash"]
         if stock == None:
@@ -81,14 +81,14 @@ def buy():
         elif stock["price"]*request.form.get("shares") > current_cash:
             return apology("Not Enough Balance", 403)
 
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash - (stock["price"]*request.form.get("shares")),session["user_id"])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash - (stock["price"]*int(request.form.get("shares"))),session["user_id"])
         current_stock_existence = db.execute("SELECT count(*) FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
         if current_stock_existence[0] != 0:
             current_stock_count_dict = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             current_stock_price_dict = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             current_stock_count = current_stock_count_dict[0]["stock_count"]
             current_stock_price = current_stock_price_dict[0]["price"]
-            db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count + request.form.get("shares"),current_stock_price + (stock["price"] * request.form.get("shares")), stock["symbol"],session["user_id"])
+            db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count + int(request.form.get("shares")),current_stock_price + (stock["price"] * request.form.get("shares")), stock["symbol"],session["user_id"])
             db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime(now),?,'BOUGHT')", stock["name"], request.form.get("shares"), stock["symbol"], session["user_id"], stock["price"] * request.form.get("shares"))
 
         else:
@@ -225,14 +225,14 @@ def sell():
     if request.method == "POST":
 
         # Ensure username was submitted
-        if not request.form.get("stocksymbol"):
+        if not request.form.get("symbol"):
             return apology("must provide a valid stock symbol", 400)
 
         # Ensure password was submitted
         elif not request.form.get("numberofshares") or request.form.get("numberofshares")<=0:
             return apology("must provide a valid quantity of shares to buy", 400)
 
-        stock = lookup(request.form.get("stocksymbol"))
+        stock = lookup(request.form.get("symbol"))
         current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         current_cash = current_cash_dict[0]["cash"]
         if stock == None:
