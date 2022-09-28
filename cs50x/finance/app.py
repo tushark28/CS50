@@ -153,7 +153,7 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
-    if request.method = "POST":
+    if request.method == "POST":
 
         #Ensures if stock name is submitted
         if not request.form.get("stockname"):
@@ -234,11 +234,11 @@ def sell():
             db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash + (stock["price"]*request.form.get("numberofshares")),session["user_id"])
             if current_stock_count - request.form.get("numberofshares") == 0:
                 db.execute("DELETE FROM current_stocks WHERE stock_symbol = ? AND user_id = ?",  stock["symbol"],session["user_id"])
-            elif:
+            else:
                 db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count - request.form.get("numberofshares"),(current_stock_price/current_stock_count)* current_stock_count - request.form.get("numberofshares"), stock["symbol"],session["user_id"])
             db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime(now),?,'SOLD')", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"], stock["price"] * request.form.get("numberofshares"))
 
-        elif:
+        else:
             return apology("You do not have this share in your portfolio",403)
 
         return redirect("/")
