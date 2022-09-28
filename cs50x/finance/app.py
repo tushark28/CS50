@@ -229,14 +229,17 @@ def sell():
             return apology("must provide a valid quantity of shares to buy", 403)
 
         stock = lookup(request.form.get("stocksymbol"))
-        current_cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        current_cash = current_cash_dict[0]["cash"]
         if stock == None:
             return apology("Invalid Stock name", 403)
 
         current_stock_existence = db.execute("SELECT * FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
         if len(current_stock_existence) != 0:
-            current_stock_count = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
-            current_stock_price = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            current_stock_count_dict = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            current_stock_price_dict = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            current_stock_count = current_stock_count_dict[0]["stock_count"]
+            current_stock_price = current_stock_price_dict[0]["price"]
             db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash + (stock["price"]*request.form.get("numberofshares")),session["user_id"])
             if current_stock_count - request.form.get("numberofshares") == 0:
                 db.execute("DELETE FROM current_stocks WHERE stock_symbol = ? AND user_id = ?",  stock["symbol"],session["user_id"])
