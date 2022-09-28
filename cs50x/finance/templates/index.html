@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Register
+    Stock History
 {% endblock %}
 
 {% block main %}
@@ -10,13 +10,19 @@
                 <thead>
                     <tr>
                         <th>Stock</th>
+                        <th>Symbol</th>
+                        <th>Quantity</th>
                         <th>Price</th>
+                        <th>Time</th>
                     </tr>
                 </thead>
-                {% for one_stock in stock %}
+                {% for stock in stock_history %}
                 <tr>
-                    <td>{{one_stock.name}}</td>
-                    <td>{{one_stock.price}}</td>
+                    <td>{{stock.stock_name}}</td>
+                    <td>{{stock.stock_symbol}}</td>
+                    <td>{{stock.stock_count}}</td>
+                    <td>{{stock.price}}</td>
+                    <td>{{stock.time}}</td>
                 </tr>
                 {% endfor %}
             </table>

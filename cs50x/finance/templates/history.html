@@ -14,6 +14,7 @@
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>Time</th>
+                        <th>Transaction Type</th>
                     </tr>
                 </thead>
                 {% for stock in stock_history %}
@@ -23,6 +24,7 @@
                     <td>{{stock.stock_count}}</td>
                     <td>{{stock.price}}</td>
                     <td>{{stock.time}}</td>
+                    <td>{{stock.transaction_type}}</td>
                 </tr>
                 {% endfor %}
             </table>
