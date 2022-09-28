@@ -160,12 +160,12 @@ def quote():
 
         #Ensures if stock name is submitted
         if not request.form.get("symbol"):
-            return apology("must provide a Stock Name", 403)
+            return apology("must provide a Stock Name", 400)
 
         #ensures if stock name is valid
         stock = lookup(request.form.get("symbol"))
         if stock == None:
-            return apology("Invalid Stock name", 403)
+            return apology("Invalid Stock name", 400)
 
         return render_template("quoted.html",stock=stock)
 
@@ -192,12 +192,13 @@ def register():
         elif request.form.get("password") != request.form.get("confirmation"):
             return apology("Password did not matched", 400)
 
+
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
         #checks for any existing same username
         if len(rows) != 0:
-            return apology("Username already Taken", 403)
+            return apology("Username already Taken", 400)
 
         #registers user into database
         db.execute("INSERT INTO users(username, hash) VALUES(?, ?)",request.form.get("username"),generate_password_hash(request.form.get("password")))
@@ -222,17 +223,17 @@ def sell():
 
         # Ensure username was submitted
         if not request.form.get("stocksymbol"):
-            return apology("must provide a valid stock symbol", 403)
+            return apology("must provide a valid stock symbol", 400)
 
         # Ensure password was submitted
         elif not request.form.get("numberofshares") or request.form.get("numberofshares")<=0:
-            return apology("must provide a valid quantity of shares to buy", 403)
+            return apology("must provide a valid quantity of shares to buy", 400)
 
         stock = lookup(request.form.get("stocksymbol"))
         current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         current_cash = current_cash_dict[0]["cash"]
         if stock == None:
-            return apology("Invalid Stock name", 403)
+            return apology("Invalid Stock name", 400)
 
         current_stock_existence = db.execute("SELECT * FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
         if len(current_stock_existence) != 0:
@@ -248,7 +249,7 @@ def sell():
             db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime(now),?,'SOLD')", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"], stock["price"] * request.form.get("numberofshares"))
 
         else:
-            return apology("You do not have this share in your portfolio",403)
+            return apology("You do not have this share in your portfolio",400)
 
         return redirect("/")
 
