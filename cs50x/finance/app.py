@@ -62,7 +62,7 @@ def buy():
             return apology("must provide a valid quantity of shares to buy", 403)
 
         stock = lookup(request.form.get("stocksymbol"))
-        current_cash = db.execute("select ")
+        current_cash = db.execute("SELECT cash FROM users WHERE ")
         if stock == None:
             return apology("Invalid Stock name", 403)
 
