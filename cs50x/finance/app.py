@@ -69,8 +69,9 @@ def buy():
         elif stock["price"]*request.form.get("numberofshares") > current_cash:
             return apology("Not Enough Balance", 403)
 
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash - (stock["price"]*request.form.get("numberofshares")),session["user_id"] )
-        db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol) VALUES(?,?,?)", )
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash - (stock["price"]*request.form.get("numberofshares")),session["user_id"])
+        current
+        db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol) VALUES(?,?,?)", stock["name"], )
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("login.html")
