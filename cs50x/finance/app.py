@@ -78,7 +78,7 @@ def buy():
         if stock == None:
             return apology("Invalid Stock name", 403)
 
-        elif stock["price"]*request.form.get("shares") > current_cash:
+        elif stock["price"]*int(request.form.get("shares")) > current_cash:
             return apology("Not Enough Balance", 403)
 
         db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash - (stock["price"]*int(request.form.get("shares"))),session["user_id"])
@@ -88,8 +88,8 @@ def buy():
             current_stock_price_dict = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             current_stock_count = current_stock_count_dict[0]["stock_count"]
             current_stock_price = current_stock_price_dict[0]["price"]
-            db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count + int(request.form.get("shares")),current_stock_price + (stock["price"] * request.form.get("shares")), stock["symbol"],session["user_id"])
-            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime(now),?,'BOUGHT')", stock["name"], request.form.get("shares"), stock["symbol"], session["user_id"], stock["price"] * request.form.get("shares"))
+            db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count + int(request.form.get("shares")),current_stock_price + (stock["price"] * int(request.form.get("shares"))), stock["symbol"],session["user_id"])
+            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime(now),?,'BOUGHT')", stock["name"], int(request.form.get("shares")), stock["symbol"], session["user_id"], stock["price"] * int(request.form.get("shares")))
 
         else:
             db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id,price) VALUES(?,?,?,?,?)", stock["name"],request.form.get("shares"), stock["symbol"],session["user_id"],stock["price"] * request.form.get("shares"))
