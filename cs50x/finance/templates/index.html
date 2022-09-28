@@ -21,10 +21,19 @@
                     <td>{{stock.stock_name}}</td>
                     <td>{{stock.stock_symbol}}</td>
                     <td>{{stock.stock_count}}</td>
-                    <td>{{stock.price}}</td>
-                    <td>{{stock.time}}</td>
+                    <td>{{stock.each_stock}}</td>
+                    <td>{{stock.current_price}}</td>
                 </tr>
                 {% endfor %}
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>{{total_stock_value}}</td>
+                </tr>
             </table>
+            <p>Current Cash Balance = {{cash}}</p>
+            <p>Total Value of Stocks and Cash Balance = {{ total_stock_value + cash}}</p>
         </div>
 {% endblock %}
