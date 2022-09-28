@@ -91,7 +91,7 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    db.execute()
+    db.execute("SELECT * FROM stock")
 
 
 @app.route("/login", methods=["GET", "POST"])
