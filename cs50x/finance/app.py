@@ -45,14 +45,14 @@ def index():
     """Show portfolio of stocks"""
     current_stocks = db.execute("SELECT stock_name,stock_symbol,stock_count,price FROM current_stocks WHERE user_id = ?",session["user_id"])
     total_stock_value = 0
-    cash[0]["cash"] = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+    cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
     for stock in current_stocks:
         stock_info = lookup(stock["stock_symbol"])
         stock["current_price"] = stock_info["price"] * stock["stock_count"]
         stock["each_stock"] = stock_info["price"]
         total_stock_value += stock["current_price"]
 
-    return render_template("index.html",current_stocks=current_stocks,total_stock_value=total_stock_value,cash = cash)
+    return render_template("index.html",current_stocks=current_stocks,total_stock_value=total_stock_value,cash = cash[0]["cash"])
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
@@ -70,7 +70,7 @@ def buy():
             return apology("must provide a valid quantity of shares to buy", 403)
 
         stock = lookup(request.form.get("stocksymbol"))
-        current_cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         if stock == None:
             return apology("Invalid Stock name", 403)
 
