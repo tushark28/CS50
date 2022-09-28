@@ -73,7 +73,7 @@ def buy():
         current_stock_existence = db.execute("SELECT count(*) FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
         if current_stock_existence != 0:
             current_stock_count = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
-            db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol) VALUES(?,?,?)", stock["name"],current_stock_count + request.form.get("numberofshares"), stock["symbol"])
+            db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id) VALUES(?,?,?,?)", stock["name"],current_stock_count + request.form.get("numberofshares"), stock["symbol"],session["user_id"])
             db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol) VALUES(?,?,?)", stock["name"],current_stock_count + request.form.get("numberofshares"), stock["symbol"])
 
         elif:
