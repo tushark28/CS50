@@ -70,7 +70,7 @@ def buy():
             return apology("Not Enough Balance", 403)
 
         db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash - (stock["price"]*request.form.get("numberofshares")),session["user_id"])
-        current_stock_existence = db.execute("SELECT count(*) FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+        current_stock_existence = int(db.execute("SELECT count(*) FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"]))
         if current_stock_existence != 0:
             current_stock_count = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             current_stock_price = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
