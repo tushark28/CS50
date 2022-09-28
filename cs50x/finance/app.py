@@ -43,7 +43,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    
+    current_stocks = db.execute("SELECT stock_name,stock_count,price")
 
 
 @app.route("/buy", methods=["GET", "POST"])
