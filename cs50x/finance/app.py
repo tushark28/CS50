@@ -49,6 +49,7 @@ def index():
     for stock in current_stocks:
         stock_info = lookup(stock["stock_symbol"])
         stock["current_price"] = stock_info["price"] * stock["stock_count"]
+        stock["each_stock"] = stock_info["price"]
         total_stock_value += stock["current_price"]
 
     return render_template("index.html",current_stocks=current_stocks,total_stock_value=total_stock_value,cash = cash)
