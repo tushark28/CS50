@@ -46,7 +46,9 @@ def index():
     current_stocks = db.execute("SELECT stock_name,stock_symbol,stock_count,price WHERE user_id = ?",session["user_id"])
     for stock in current_stocks:
         stock_info = lookup(stock["stock_symbol"])
-        stock[""]
+        stock["current_price"] = stock_info["price"] * stock["stock_count"]
+
+    return render_template("index.html",current_stocks=current_stocks,)
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
