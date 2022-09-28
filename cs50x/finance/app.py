@@ -43,7 +43,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    current_stocks = db.execute("SELECT stock_name,stock_symbol,stock_count,price WHERE user_id = ?",session["user_id"])
+    current_stocks = db.execute("SELECT stock_name,stock_symbol,stock_count,price FROM current_stocks WHERE user_id = ?",session["user_id"])
     total_stock_value = 0
     cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
     for stock in current_stocks:
