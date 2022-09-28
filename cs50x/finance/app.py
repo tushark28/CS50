@@ -75,7 +75,7 @@ def buy():
             current_stock_count = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             current_stock_price = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id,price) VALUES(?,?,?,?,?)", stock["name"],current_stock_count + request.form.get("numberofshares"), stock["symbol"],session["user_id"])
-            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price) VALUES(?,?,?,?,datetime(now),?)", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"])
+            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price) VALUES(?,?,?,?,datetime(now),?)", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"], stock["price"])
 
         elif:
             db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id,price) VALUES(?,?,?,?,?)", stock["name"],request.form.get("numberofshares"), stock["symbol"],session["user_id"])
