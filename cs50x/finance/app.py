@@ -221,7 +221,7 @@ def sell():
 
         current_stock_existence = db.execute("SELECT * FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
         if len(current_stock_existence) != 0:
-            db.execute("UPDATE users SET cash = ? AND stock_count = ? WHERE id = ?", current_cash + (stock["price"]*request.form.get("numberofshares")),session["user_id"])
+            db.execute("UPDATE users SET cash = ? AND stock_count = ? WHERE id = ?", current_cash + (stock["price"]*request.form.get("numberofshares")), ,session["user_id"])
             current_stock_count = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             current_stock_price = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id,price) VALUES(?,?,?,?,?)", stock["name"],current_stock_count + request.form.get("numberofshares"), stock["symbol"],session["user_id"],current_stock_price + (stock["price"] * request.form.get("numberofshares")))
