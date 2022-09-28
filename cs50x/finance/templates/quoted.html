@@ -15,7 +15,7 @@
                 </thead>
                 <tr>
                     <td>{{ stock["name"] }}</td>
-                    <td>{{ stock["price"] }}</td>
+                    <td>{{ stock["price"] | usd }}</td>
                 </tr>
             </table>
         </div>
