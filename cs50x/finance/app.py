@@ -63,11 +63,11 @@ def buy():
 
         # Ensure username was submitted
         if not request.form.get("stocksymbol"):
-            return apology("must provide a valid stock symbol", 403)
+            return apology("must provide a valid stock symbol", 400)
 
         # Ensure password was submitted
         elif not request.form.get("shares") or request.form.get("shares")<=0:
-            return apology("must provide a valid quantity of shares to buy", 403)
+            return apology("must provide a valid quantity of shares to buy", 400)
 
         stock = lookup(request.form.get("stocksymbol"))
         current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
