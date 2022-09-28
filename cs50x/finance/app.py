@@ -204,7 +204,37 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    
+    if request.method == "POST":
+
+        # Ensure username was submitted
+        if not request.form.get("stocksymbol"):
+            return apology("must provide a valid stock symbol", 403)
+
+        # Ensure password was submitted
+        elif not request.form.get("numberofshares") or request.form.get("numberofshares")<=0:
+            return apology("must provide a valid quantity of shares to buy", 403)
+
+        stock = lookup(request.form.get("stocksymbol"))
+        current_cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        if stock == None:
+            return apology("Invalid Stock name", 403)
+
+        elif stock["price"]*request.form.get("numberofshares") > current_cash:
+            return apology("Not Enough Balance", 403)
+
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash - (stock["price"]*request.form.get("numberofshares")),session["user_id"])
+        current_stock_existence = db.execute("SELECT count(*) FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+        if current_stock_existence != 0:
+            current_stock_count = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            current_stock_price = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id,price) VALUES(?,?,?,?,?)", stock["name"],current_stock_count + request.form.get("numberofshares"), stock["symbol"],session["user_id"],current_stock_price + (stock["price"] * request.form.get("numberofshares")))
+            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price) VALUES(?,?,?,?,datetime(now),?)", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"], stock["price"] * request.form.get("numberofshares"))
+
+        elif:
+            db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id,price) VALUES(?,?,?,?,?)", stock["name"],request.form.get("numberofshares"), stock["symbol"],session["user_id"],stock["price"] * request.form.get("numberofshares"))
+            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price) VALUES(?,?,?,?,datetime(now),?)", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"],stock["price"] * request.form.get("numberofshares"))
+
+        return redirect("/")
 
     else:
         return render_template("sell.html")
