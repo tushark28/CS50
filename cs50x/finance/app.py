@@ -43,8 +43,10 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    current_stocks = db.execute("SELECT stock_name,stock_count,price")
-
+    current_stocks = db.execute("SELECT stock_name,stock_symbol,stock_count,price WHERE user_id = ?",session["user_id"])
+    for stock in current_stocks:
+        stock_info = lookup(stock["stock_symbol"])
+        stock[""]
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
