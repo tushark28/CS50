@@ -77,13 +77,13 @@ def buy():
             db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time) VALUES(?,?,?,?,datetime(now))", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"])
 
         elif:
-            db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id) VALUES(?,?,?,?)", stock["name"],request.form.get("numberofshares"), stock["symbol"],session["user_id"])
-            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time) VALUES(?,?,?,?,datetime(now))", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"])
+            db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id,price) VALUES(?,?,?,?,?)", stock["name"],request.form.get("numberofshares"), stock["symbol"],session["user_id"])
+            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price) VALUES(?,?,?,?,datetime(now),?)", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"])
 
         return redirect("/")
     # User reached route via GET (as by clicking a link or via redirect)
     else:
-        return render_template("login.html")
+        return render_template("buy.html")
 
 
 @app.route("/history")
@@ -126,7 +126,7 @@ def login():
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
-        return render_template("buy.html")
+        return render_template("login.html")
 
 
 @app.route("/logout")
