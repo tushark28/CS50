@@ -71,6 +71,7 @@ def buy():
 
         stock = lookup(request.form.get("stocksymbol"))
         current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        current_cash = current_cash_dict[0]["cash"]
         if stock == None:
             return apology("Invalid Stock name", 403)
 
@@ -78,10 +79,12 @@ def buy():
             return apology("Not Enough Balance", 403)
 
         db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash - (stock["price"]*request.form.get("numberofshares")),session["user_id"])
-        current_stock_existence = int(db.execute("SELECT count(*) FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"]))
-        if current_stock_existence != 0:
-            current_stock_count = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
-            current_stock_price = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+        current_stock_existence = db.execute("SELECT count(*) FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+        if current_stock_existence[0] != 0:
+            current_stock_count_dict = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            current_stock_price_dict = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            current_stock_count = current_stock_count_dict[0]["stock_count"]
+            current_stock_price = current_stock_price_dict[0]["price"]
             db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count + request.form.get("numberofshares"),current_stock_price + (stock["price"] * request.form.get("numberofshares")), stock["symbol"],session["user_id"])
             db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime(now),?,'BOUGHT')", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"], stock["price"] * request.form.get("numberofshares"))
 
