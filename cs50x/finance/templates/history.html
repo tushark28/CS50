@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Register
+    Stock History
 {% endblock %}
 
 {% block main %}
@@ -10,7 +10,9 @@
                 <thead>
                     <tr>
                         <th>Stock</th>
+                        <th>Quantity</th>
                         <th>Price</th>
+                        <th></th>
                     </tr>
                 </thead>
                 {% for one_stock in stock%}
