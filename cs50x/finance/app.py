@@ -92,8 +92,6 @@ def buy():
 def history():
     """Show history of transactions"""
     stock_history = db.execute("SELECT (stock_name, stock_count, time, stock_symbol, price) FROM stocks_history WHERE user_id = ?", session["user_id"])
-    if len(stock_history) == 0:
-
     return render_template("history.html",stock_history = stock_history)
 
 @app.route("/login", methods=["GET", "POST"])
