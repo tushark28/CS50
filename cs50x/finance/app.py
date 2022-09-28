@@ -206,7 +206,7 @@ def register():
 
     # User reached route via GET (as by clicking a link or via redirect)
     else:
-        return render_template("login.html")
+        return render_template("registration.html")
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
