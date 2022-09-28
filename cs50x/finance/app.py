@@ -159,11 +159,11 @@ def quote():
     if request.method == "POST":
 
         #Ensures if stock name is submitted
-        if not request.form.get("stockname"):
+        if not request.form.get("symbol"):
             return apology("must provide a Stock Name", 403)
 
         #ensures if stock name is valid
-        stock = lookup(request.form.get("stockname"))
+        stock = lookup(request.form.get("symbol"))
         if stock == None:
             return apology("Invalid Stock name", 403)
 
@@ -183,14 +183,14 @@ def register():
 
         # Ensure username was submitted
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            return apology("must provide username", 400)
 
         # Ensure password was submitted
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            return apology("must provide password", 400)
 
         elif request.form.get("password") != request.form.get("confirmation"):
-            return apology("Password did not matched", 403)
+            return apology("Password did not matched", 400)
 
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
