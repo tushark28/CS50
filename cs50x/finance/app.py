@@ -62,10 +62,11 @@ def buy():
             return apology("must provide a valid quantity of shares to buy", 403)
 
         stock = lookup(request.form.get("stocksymbol"))
+        current_cash = db.execute("select ")
         if stock == None:
             return apology("Invalid Stock name", 403)
 
-        elif stock["price"]
+        elif stock["price"]*request.form.get("numberofshares")
         # Query database for username
         rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
 
