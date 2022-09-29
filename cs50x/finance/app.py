@@ -76,10 +76,10 @@ def buy():
         current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         current_cash = current_cash_dict[0]["cash"]
         if stock == None:
-            return apology("Invalid Stock name", 403)
+            return apology("Invalid Stock name", 400)
 
         elif stock["price"]*int(request.form.get("shares")) > current_cash:
-            return apology("Not Enough Balance", 403)
+            return apology("Not Enough Balance", 400)
 
         db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash - (stock["price"]*int(request.form.get("shares"))),session["user_id"])
         current_stock_existence = db.execute("SELECT * FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
