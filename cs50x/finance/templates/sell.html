@@ -9,7 +9,10 @@
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="symbol" name="symbol" placeholder="Stock" type="text">
             <select name="symbol" id="symbol">
-                <option></option>
+                <option disable selected>symbol</option>
+                {{% for symbol in symbols %}}
+                <option>{{symbol.stock_symbol}}</option>
+                {{% endfor %}}
             </select>
         </div>
         <div class="mb-3">
