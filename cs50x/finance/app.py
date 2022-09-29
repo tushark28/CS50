@@ -257,7 +257,7 @@ def sell():
             current_stock_count = int(current_stock_count_dict[0]["stock_count"])
             current_stock_price = float(current_stock_price_dict[0]["price"])
             db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash + (stock["price"]*int(request.form.get("shares"))),session["user_id"])
-            if current_stock_count - request.form.get("shares") == 0:
+            if current_stock_count - int(request.form.get("shares")) == 0:
                 db.execute("DELETE FROM current_stocks WHERE stock_symbol = ? AND user_id = ?",  stock["symbol"],session["user_id"])
             else:
                 db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count - int(request.form.get("shares")),(float(current_stock_price)/float(current_stock_count))* (current_stock_count - int(request.form.get("shares"))), stock["symbol"],session["user_id"])
