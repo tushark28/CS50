@@ -241,7 +241,7 @@ def sell():
         elif (request.form.get("shares").isdigit() == False):
             return apology("must provide a valid quantity of shares to buy", 400)
 
-        elif int(request.form.get("shares"))<=0:
+        elif int(request.form.get("shares"))<0:
             return apology("must provide a valid quantity of shares to buy", 400)
 
         elif (float(request.form.get("shares")) % 1) != 0:
