@@ -69,6 +69,9 @@ def buy():
         elif not request.form.get("shares"):
             return apology("must provide a valid quantity of shares to buy", 400)
 
+        elif request.form.get("shares").isdigit() == False:
+            return apology("must provide a valid quantity of shares to buy", 400)
+
         elif float(request.form.get("shares"))<=0:
             return apology("provide a valid share input",400)
 
@@ -232,7 +235,10 @@ def sell():
             return apology("must provide a valid stock symbol", 400)
 
         # Ensure password was submitted
-        elif not request.form.get("shares") or float(request.form.get("shares"))<=0:
+        elif not request.form.get("shares"):
+            return apology("must provide a valid quantity of shares to buy", 400)
+
+        elif (request.form.get("shares").isdigit() == False) or float(request.form.get("shares"))<=0:
             return apology("must provide a valid quantity of shares to buy", 400)
 
         elif (float(request.form.get("shares")) % 1) != 0:
