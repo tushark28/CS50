@@ -72,7 +72,8 @@ def buy():
         elif int(request.form.get("shares"))<=0:
             return apology("provide a valid share input",400)
 
-        elif float(request.form.get("shares")) 
+        elif (float(request.form.get("shares")) % 1) != 0:
+            return apology("provide a valid share input",400)
 
         stock = lookup(request.form.get("symbol"))
         current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
@@ -233,6 +234,9 @@ def sell():
         # Ensure password was submitted
         elif not request.form.get("shares") or request.form.get("shares")<=0:
             return apology("must provide a valid quantity of shares to buy", 400)
+
+        elif (float(request.form.get("shares")) % 1) != 0:
+            return apology("provide a valid share input",400)
 
         stock = lookup(request.form.get("symbol"))
         current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
