@@ -249,7 +249,7 @@ def sell():
                 db.execute("DELETE FROM current_stocks WHERE stock_symbol = ? AND user_id = ?",  stock["symbol"],session["user_id"])
             else:
                 db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count - request.form.get("numberofshares"),(current_stock_price/current_stock_count)* current_stock_count - request.form.get("numberofshares"), stock["symbol"],session["user_id"])
-            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime(now),?,'SOLD')", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"], stock["price"] * request.form.get("numberofshares"))
+            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime('now'),?,'SOLD')", stock["name"], request.form.get("numberofshares"), stock["symbol"], session["user_id"], stock["price"] * request.form.get("numberofshares"))
 
         else:
             return apology("You do not have this share in your portfolio",400)
