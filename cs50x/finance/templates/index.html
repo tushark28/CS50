@@ -18,10 +18,10 @@
                 </thead>
                 {% for stock in stock_history %}
                 <tr>
-                    <td>{{stock.stock_name}}</td>
-                    <td>{{stock.stock_symbol}}</td>
-                    <td>{{stock.stock_count}}</td>
-                    <td>{{stock.each_stock}}</td>
+                    <td>{{ stock["stock_name"] }}</td>
+                    <td>{{ stock.stock_symbol }}</td>
+                    <td>{{ stock.stock_count }}</td>
+                    <td>{{stock.each_stock }}</td>
                     <td>{{stock.current_price}}</td>
                 </tr>
                 {% endfor %}
