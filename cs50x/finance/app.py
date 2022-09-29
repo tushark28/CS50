@@ -254,7 +254,8 @@ def sell():
             return apology("Invalid Stock name", 400)
 
         current_stock_existence = db.execute("SELECT * FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
-        if len(current_stock_existence) != 0:
+        stock_check = current_stock_existence[0]["stock_count"]
+        if len(current_stock_existence) != 0 and stock_check>= int(request.form.get("shares")):
             current_stock_count_dict = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             current_stock_price_dict = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             current_stock_count = int(current_stock_count_dict[0]["stock_count"])
