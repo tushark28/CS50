@@ -1,39 +1,41 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Stock History
+Stock History
 {% endblock %}
 
 {% block main %}
-        <div class="mb-3">
-            <table class="table table-striped table-hover">
-                <thead>
-                    <tr>
-                        <th>Stock</th>
-                        <th>Symbol</th>
-                        <th>Quantity</th>
-                        <th>Price per stock</th>
-                        <th>Total Value</th>
-                    </tr>
-                </thead>
-                {% for stock in current_stocks %}
-                <tr>
-                    <td>{{ stock["stock_name"] }}</td>
-                    <td>{{ stock["stock_symbol"] }}</td>
-                    <td>{{ stock["stock_count"] }}</td>
-                    <td>{{ stock["each_stock"] | usd }}</td>
-                    <td>{{ stock["current_price"] | usd }}</td>
-                </tr>
-                {% endfor %}
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>{{total_stock_value | usd}}</td>
-                </tr>
-            </table>
-            <p>Current Cash Balance = {{ cash | usd }}</p>
-            <p>Total Value of Stocks and Cash Balance = {{ total_value | usd }}</p>
-        </div>
+<div class="mb-3">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Symbol</th>
+                <th>Quantity</th>
+                <th>Price per stock</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+        {% for stock in current_stocks %}
+        <tr>
+            <td>{{ stock["stock_name"] }}</td>
+            <td>{{ stock["stock_symbol"] }}</td>
+            <td>{{ stock["stock_count"] }}</td>
+            <td>{{ stock["each_stock"] | usd }}</td>
+            <td>{{ stock["current_price"] | usd }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <table class="table table-striped table-hover">
+        <tr>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td>Total</td>
+            <td>{{total_stock_value | usd}}</td>
+        </tr>
+    </table>
+    <p>Current Cash Balance = {{ cash | usd }}</p>
+    <p>Total Value of Stocks and Cash Balance = {{ total_value | usd }}</p>
+</div>
 {% endblock %}
