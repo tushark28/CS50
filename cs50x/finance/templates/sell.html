@@ -9,9 +9,9 @@
         <div class="mb-3">
             <select name="symbol" id="symbol">
                 <option disable selected>symbol</option>
-                {{% for symbol in symbols %}}
+                {% for symbol in symbols %}
                 <option>{{ symbol["stock_symbol"] }}</option>
-                {{% endfor %}}
+                {% endfor %}
             </select>
         </div>
         <div class="mb-3">
