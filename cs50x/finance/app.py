@@ -72,6 +72,8 @@ def buy():
         elif int(request.form.get("shares"))<=0:
             return apology("provide a valid share input",400)
 
+        elif float(request.form.get("shares")) 
+
         stock = lookup(request.form.get("symbol"))
         current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
         current_cash = current_cash_dict[0]["cash"]
