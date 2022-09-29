@@ -16,13 +16,13 @@
                         <th>Total Value</th>
                     </tr>
                 </thead>
-                {% for stock in stock_history %}
+                {% for stock in current_stocks %}
                 <tr>
                     <td>{{ stock["stock_name"] }}</td>
-                    <td>{{ stock.stock_symbol }}</td>
-                    <td>{{ stock.stock_count }}</td>
-                    <td>{{stock.each_stock }}</td>
-                    <td>{{stock.current_price}}</td>
+                    <td>{{ stock["stock_symbol"] }}</td>
+                    <td>{{ stock["stock_count"] }}</td>
+                    <td>{{ stock["each_stock"] | usd }}</td>
+                    <td>{{ stock["current_price"] | usd }}</td>
                 </tr>
                 {% endfor %}
                 <tr>
