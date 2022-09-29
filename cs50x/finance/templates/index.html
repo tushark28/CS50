@@ -30,10 +30,10 @@
                     <td></td>
                     <td></td>
                     <td></td>
-                    <td>{{total_stock_value}}</td>
+                    <td>{{total_stock_value | usd}}</td>
                 </tr>
             </table>
-            <p>Current Cash Balance = {{cash}}</p>
-            <p>Total Value of Stocks and Cash Balance = {{ total_stock_value + cash }}</p>
+            <p>Current Cash Balance = {{ cash | usd }}</p>
+            <p>Total Value of Stocks and Cash Balance = {{ total_value | usd }}</p>
         </div>
 {% endblock %}
