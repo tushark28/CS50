@@ -256,12 +256,12 @@ def sell():
             current_stock_price_dict = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             current_stock_count = int(current_stock_count_dict[0]["stock_count"])
             current_stock_price = float(current_stock_price_dict[0]["price"])
-            db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash + (stock["price"]*request.form.get("shares")),session["user_id"])
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash + (stock["price"]*int(request.form.get("shares"))),session["user_id"])
             if current_stock_count - request.form.get("shares") == 0:
                 db.execute("DELETE FROM current_stocks WHERE stock_symbol = ? AND user_id = ?",  stock["symbol"],session["user_id"])
             else:
-                db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count - request.form.get("shares"),(current_stock_price/current_stock_count)* current_stock_count - request.form.get("shares"), stock["symbol"],session["user_id"])
-            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime('now'),?,'SOLD')", stock["name"], request.form.get("shares"), stock["symbol"], session["user_id"], stock["price"] * request.form.get("shares"))
+                db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count - int(request.form.get("shares")),(float(current_stock_price)/float(current_stock_count))* (current_stock_count - int(request.form.get("shares"))), stock["symbol"],session["user_id"])
+            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime('now'),?,'SOLD')", stock["name"], request.form.get("shares"), stock["symbol"], session["user_id"], stock["price"] * int(request.form.get("shares")))
 
         else:
             return apology("You do not have this share in your portfolio",400)
