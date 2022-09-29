@@ -43,16 +43,19 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    current_stocks = db.execute("SELECT stock_name,stock_symbol,stock_count,price FROM current_stocks WHERE user_id = ?",session["user_id"])
+    current_stocks = db.execute(
+        "SELECT stock_name,stock_symbol,stock_count,price FROM current_stocks WHERE user_id = ?", session["user_id"])
     total_stock_value = 0
-    cash = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+    cash = db.execute("SELECT cash FROM users WHERE id = ?",
+                      session["user_id"])
     for stock in current_stocks:
         stock_info = lookup(stock["stock_symbol"])
         stock["current_price"] = stock_info["price"] * stock["stock_count"]
         stock["each_stock"] = stock_info["price"]
         total_stock_value += stock["current_price"]
     total_value = float(total_stock_value) + float(cash[0]["cash"])
-    return render_template("index.html",current_stocks=current_stocks,total_stock_value=total_stock_value,cash = cash[0]["cash"],total_value = total_value)
+    return render_template("index.html", current_stocks=current_stocks, total_stock_value=total_stock_value, cash=cash[0]["cash"], total_value=total_value)
+
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
@@ -72,14 +75,15 @@ def buy():
         elif request.form.get("shares").isdigit() == False:
             return apology("must provide a valid quantity of shares to buy", 400)
 
-        elif float(request.form.get("shares"))<=0:
-            return apology("provide a valid share input",400)
+        elif float(request.form.get("shares")) <= 0:
+            return apology("provide a valid share input", 400)
 
         elif (float(request.form.get("shares")) % 1) != 0:
-            return apology("provide a valid share input",400)
+            return apology("provide a valid share input", 400)
 
         stock = lookup(request.form.get("symbol"))
-        current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        current_cash_dict = db.execute(
+            "SELECT cash FROM users WHERE id = ?", session["user_id"])
         current_cash = current_cash_dict[0]["cash"]
         if stock == None:
             return apology("Invalid Stock name", 400)
@@ -87,19 +91,27 @@ def buy():
         elif stock["price"]*int(request.form.get("shares")) > current_cash:
             return apology("Not Enough Balance", 400)
 
-        db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash - (stock["price"]*int(request.form.get("shares"))),session["user_id"])
-        current_stock_existence = db.execute("SELECT * FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+        db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash -
+                   (stock["price"]*int(request.form.get("shares"))), session["user_id"])
+        current_stock_existence = db.execute(
+            "SELECT * FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
         if len(current_stock_existence) != 0:
-            current_stock_count_dict = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
-            current_stock_price_dict = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            current_stock_count_dict = db.execute(
+                "SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            current_stock_price_dict = db.execute(
+                "SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
             current_stock_count = current_stock_count_dict[0]["stock_count"]
             current_stock_price = current_stock_price_dict[0]["price"]
-            db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count + int(request.form.get("shares")),current_stock_price + (stock["price"] * int(request.form.get("shares"))), stock["symbol"],session["user_id"])
-            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime('now'),?,'BOUGHT')", stock["name"], int(request.form.get("shares")), stock["symbol"], session["user_id"], stock["price"] * int(request.form.get("shares")))
+            db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count + int(
+                request.form.get("shares")), current_stock_price + (stock["price"] * int(request.form.get("shares"))), stock["symbol"], session["user_id"])
+            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime('now'),?,'BOUGHT')",
+                       stock["name"], int(request.form.get("shares")), stock["symbol"], session["user_id"], stock["price"] * int(request.form.get("shares")))
 
         else:
-            db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id,price) VALUES(?,?,?,?,?)", stock["name"],request.form.get("shares"), stock["symbol"],session["user_id"],stock["price"] * int(request.form.get("shares")))
-            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime('now'),?,'BOUGHT')", stock["name"], request.form.get("shares"), stock["symbol"], session["user_id"], stock["price"] * int(request.form.get("shares")))
+            db.execute("INSERT INTO current_stocks(stock_name,stock_count,stock_symbol,user_id,price) VALUES(?,?,?,?,?)", stock["name"], request.form.get(
+                "shares"), stock["symbol"], session["user_id"], stock["price"] * int(request.form.get("shares")))
+            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime('now'),?,'BOUGHT')",
+                       stock["name"], request.form.get("shares"), stock["symbol"], session["user_id"], stock["price"] * int(request.form.get("shares")))
 
         return redirect("/")
     # User reached route via GET (as by clicking a link or via redirect)
@@ -111,8 +123,10 @@ def buy():
 @login_required
 def history():
     """Show history of transactions"""
-    stock_history = db.execute("SELECT stock_name, stock_count, time, stock_symbol, price, transaction_type FROM stocks_history WHERE user_id = ?", session["user_id"])
-    return render_template("history.html",stock_history = stock_history)
+    stock_history = db.execute(
+        "SELECT stock_name, stock_count, time, stock_symbol, price, transaction_type FROM stocks_history WHERE user_id = ?", session["user_id"])
+    return render_template("history.html", stock_history=stock_history)
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -133,7 +147,8 @@ def login():
             return apology("must provide password", 403)
 
         # Query database for username
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows = db.execute("SELECT * FROM users WHERE username = ?",
+                          request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
@@ -167,19 +182,20 @@ def quote():
     """Get stock quote."""
     if request.method == "POST":
 
-        #Ensures if stock name is submitted
+        # Ensures if stock name is submitted
         if not request.form.get("symbol"):
             return apology("must provide a Stock Name", 400)
 
-        #ensures if stock name is valid
+        # ensures if stock name is valid
         stock = lookup(request.form.get("symbol"))
         if stock == None:
             return apology("Invalid Stock name", 400)
 
-        return render_template("quoted.html",stock=stock)
+        return render_template("quoted.html", stock=stock)
 
     else:
         return render_template("quote.html")
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -201,18 +217,20 @@ def register():
         elif request.form.get("password") != request.form.get("confirmation"):
             return apology("Password did not matched", 400)
 
-
         # Query database for username
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows = db.execute("SELECT * FROM users WHERE username = ?",
+                          request.form.get("username"))
 
-        #checks for any existing same username
+        # checks for any existing same username
         if len(rows) != 0:
             return apology("Username already Taken", 400)
 
-        #registers user into database
-        db.execute("INSERT INTO users(username, hash) VALUES(?, ?)",request.form.get("username"),generate_password_hash(request.form.get("password")))
+        # registers user into database
+        db.execute("INSERT INTO users(username, hash) VALUES(?, ?)", request.form.get(
+            "username"), generate_password_hash(request.form.get("password")))
 
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows = db.execute("SELECT * FROM users WHERE username = ?",
+                          request.form.get("username"))
 
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
@@ -223,6 +241,7 @@ def register():
     # User reached route via GET (as by clicking a link or via redirect)
     else:
         return render_template("registration.html")
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
@@ -241,37 +260,47 @@ def sell():
         elif (request.form.get("shares").isdigit() == False):
             return apology("must provide a valid quantity of shares to buy", 400)
 
-        elif int(request.form.get("shares"))<0:
+        elif int(request.form.get("shares")) < 0:
             return apology("must provide a valid quantity of shares to buy", 400)
 
         '''elif (float(request.form.get("shares")) % 1) != 0:
             return apology("provide a valid share input",400)
         '''
         stock = lookup(request.form.get("symbol"))
-        current_cash_dict = db.execute("SELECT cash FROM users WHERE id = ?", session["user_id"])
+        current_cash_dict = db.execute(
+            "SELECT cash FROM users WHERE id = ?", session["user_id"])
         current_cash = float(current_cash_dict[0]["cash"])
         if stock == None:
             return apology("Invalid Stock name", 400)
 
-        current_stock_existence = db.execute("SELECT * FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+        current_stock_existence = db.execute(
+            "SELECT * FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
         stock_check = current_stock_existence[0]["stock_count"]
-        if len(current_stock_existence) != 0 and stock_check>= int(request.form.get("shares")):
-            current_stock_count_dict = db.execute("SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
-            current_stock_price_dict = db.execute("SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
-            current_stock_count = int(current_stock_count_dict[0]["stock_count"])
+        if len(current_stock_existence) != 0 and stock_check >= int(request.form.get("shares")):
+            current_stock_count_dict = db.execute(
+                "SELECT stock_count FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            current_stock_price_dict = db.execute(
+                "SELECT price FROM current_stocks WHERE stock_symbol = ? AND user_id = ?", stock["symbol"], session["user_id"])
+            current_stock_count = int(
+                current_stock_count_dict[0]["stock_count"])
             current_stock_price = float(current_stock_price_dict[0]["price"])
-            db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash + (stock["price"]*int(request.form.get("shares"))),session["user_id"])
+            db.execute("UPDATE users SET cash = ? WHERE id = ?", current_cash +
+                       (stock["price"]*int(request.form.get("shares"))), session["user_id"])
             if current_stock_count - int(request.form.get("shares")) == 0:
-                db.execute("DELETE FROM current_stocks WHERE stock_symbol = ? AND user_id = ?",  stock["symbol"],session["user_id"])
+                db.execute("DELETE FROM current_stocks WHERE stock_symbol = ? AND user_id = ?",
+                           stock["symbol"], session["user_id"])
             else:
-                db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count - int(request.form.get("shares")),(float(current_stock_price)/float(current_stock_count))* (current_stock_count - int(request.form.get("shares"))), stock["symbol"],session["user_id"])
-            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime('now'),?,'SOLD')", stock["name"], request.form.get("shares"), stock["symbol"], session["user_id"], stock["price"] * int(request.form.get("shares")))
+                db.execute("UPDATE current_stocks SET stock_count = ?, price = ? WHERE stock_symbol = ? AND user_id = ?", current_stock_count - int(request.form.get("shares")),
+                           (float(current_stock_price)/float(current_stock_count)) * (current_stock_count - int(request.form.get("shares"))), stock["symbol"], session["user_id"])
+            db.execute("INSERT INTO stocks_history(stock_name,stock_count,stock_symbol,user_id,time,price,transaction_type) VALUES(?,?,?,?,datetime('now'),?,'SOLD')",
+                       stock["name"], request.form.get("shares"), stock["symbol"], session["user_id"], stock["price"] * int(request.form.get("shares")))
 
         else:
-            return apology("You do not have this share in your portfolio",400)
+            return apology("You do not have this share in your portfolio", 400)
 
         return redirect("/")
 
     else:
-        symbols = db.execute("SELECT stock_symbol FROM current_stocks WHERE user_id = ?",session["user_id"])
-        return render_template("sell.html",symbols=symbols)
+        symbols = db.execute(
+            "SELECT stock_symbol FROM current_stocks WHERE user_id = ?", session["user_id"])
+        return render_template("sell.html", symbols=symbols)
