@@ -269,5 +269,5 @@ def sell():
         return redirect("/")
 
     else:
-        symbols = db.execute("")
-        return render_template("sell.html")
+        symbols = db.execute("SELECT stock_symbol FROM current_stocks WHERE user_id = ?",session["user_id"])
+        return render_template("sell.html",symbols=symbols)
