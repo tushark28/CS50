@@ -51,8 +51,8 @@ def index():
         stock["current_price"] = stock_info["price"] * stock["stock_count"]
         stock["each_stock"] = stock_info["price"]
         total_stock_value += stock["current_price"]
-
-    return render_template("index.html",current_stocks=current_stocks,total_stock_value=total_stock_value,cash = cash[0]["cash"])
+    total_value = int(total_stock_value) + int(cash[0]["cash"])
+    return render_template("index.html",current_stocks=current_stocks,total_stock_value=total_stock_value,cash = int(cash[0]["cash"]),total_value = total_value)
 
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
