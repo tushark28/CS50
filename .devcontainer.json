@@ -5,6 +5,7 @@
     "cs50.ddb50",
     "cs50.extension-uninstaller",
     "cs50.lab50",
+    "cs50.markdown50",
     "cs50.vscode-presentation-mode",
     "ms-python.python",
     "ms-vscode.cpptools",
@@ -15,13 +16,18 @@
     "vscjava.vscode-java-debug",
     "vsls-contrib.gitdoc"
   ],
-  "image": "ghcr.io/cs50/codespace:7408c5ca5777389118ef3c5c1c66e4490299b1a7",
+  "forwardPorts": [
+    5000,
+    8080
+  ],
+  "image": "ghcr.io/cs50/codespace:0e22b9d17edca315d2d30abcaa828df98f7721eb",
   "postCreateCommand": "/opt/cs50/bin/postCreateCommand",
   "settings": {
     "C_Cpp.autocomplete": "Disabled",
     "C_Cpp.codeFolding": "Disabled",
     "C_Cpp.debugShortcut": false,
     "C_Cpp.dimInactiveRegions": false,
+    "C_Cpp.doxygen.generateOnType": false,
     "C_Cpp.enhancedColorization": "Enabled",
     "C_Cpp.errorSquiggles": "Disabled",
     "breadcrumbs.enabled": false,
@@ -93,6 +99,7 @@
       }
     ],
     "java.debug.settings.enableRunDebugCodeLens": false,
+    "java.inlayHints.parameterNames.enabled": "none",
     "java.server.launchMode": "Standard",
     "javascript.suggest.enabled": false,
     "javascript.validate.enable": false,
@@ -154,7 +161,12 @@
       "editorWarning.foreground": "#0000"
     },
     "workbench.editor.closeOnFileDelete": true,
+    "workbench.editor.enablePreview": false,
     "workbench.editor.untitled.hint": "hidden",
+    "workbench.editorAssociations": {
+      "*.wav": "vscode.audioPreview",
+      "README.md": "lab50.editor"
+    },
     "workbench.iconTheme": "vs-minimal",
     "workbench.preferredDarkColorTheme": "GitHub Dark Default",
     "workbench.preferredLightColorTheme": "GitHub Light Default",
