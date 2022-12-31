@@ -25,8 +25,8 @@ print("This is still a prototype version of this, very less amount of error hand
 input("Hit Enter to Continue:")
 
 # Taking Path as input for the Excel file
-bookpath = "D:/Codes/Python/balancing/Master Sheet Books.xlsx"
-m2bpath = "D:/Codes/Python/balancing/Master Sheet 2B.xlsx"
+bookpath = "Master Sheet Books.xlsx"
+m2bpath = "Master Sheet 2B.xlsx"
 # bookpath = input("Enter the Path of the BOOK: ").replace('\\','/').replace('"','')
 # m2bpath = input("Enter the Path of the 2b File: ").replace('\\','/').replace('"','')
 excel_df1 = read_excel(bookpath)
