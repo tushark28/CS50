@@ -2,6 +2,7 @@ x = input()
 array = x.split(" ")
 
 for i in array:
-    print(i,end="")
+    print(i,end='')
     if not i==array[len(array)-1]:
-        print("...")
+        print("...",end='')
+print()
