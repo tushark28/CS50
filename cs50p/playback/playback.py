@@ -3,5 +3,5 @@ array = x.split(" ")
 
 for i in array:
     print(i,end="")
-    if not
-    print("...")
+    if not i==array[len(array)-1]:
+        print("...")
