@@ -1,5 +1,6 @@
 format = input("File name: ").lower().strip(" ")
-format = format.split('.')[1]
+format = format.split('.')
+format = format[len(format) - 1]
 
 if format == 'gif':
     print("image/gif")
