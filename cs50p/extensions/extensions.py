@@ -11,5 +11,5 @@ elif format == 'pdf':
     print('application/pdf')
 elif format == 'png':
     print("image/png")
-elif format == 'text':
-    print(")
+elif format == 'txt':
+    print("text/plain")
