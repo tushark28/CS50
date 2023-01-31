@@ -4,4 +4,4 @@ def main():
     print(string)
 
 def convert(string):
-    
+    down = string.find(":)")
