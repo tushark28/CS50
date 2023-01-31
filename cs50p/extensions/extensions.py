@@ -1,4 +1,4 @@
-format = input("File name:").lower()
+format = input("File name: ").lower()
 format = format.split('.')[1]
 
 if format == 'gif':
