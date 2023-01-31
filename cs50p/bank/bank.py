@@ -1,7 +1,7 @@
-greet = input("Greeting: ").strip(" ").lower().strip(",")
+greet = input("Greeting: ").strip(" ").lower()
 array = greet.split(" ")
 first = array[0]
-if "hello" == first :
+if first.find("hello") !=-1 :
     print("$0")
 elif first[0] == 'h':
     print("$20")
