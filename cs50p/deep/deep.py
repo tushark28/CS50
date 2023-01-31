@@ -1,2 +1,5 @@
-ans = input("What is the Answer to the Great Question of Life, the Universe, and Everything? ").strip(" ")
-print(ans)
+ans = input("What is the Answer to the Great Question of Life, the Universe, and Everything? ").strip(" ").lower()
+if ans == "42" or ans == "forty two" or ans == "forty-two":
+    print("yes")
+else:
+    print("no")
