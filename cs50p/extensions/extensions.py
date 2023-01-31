@@ -14,3 +14,5 @@ elif format == 'png':
     print("image/png")
 elif format == 'txt':
     print("text/plain")
+else:
+    print("application/octet-stream")
