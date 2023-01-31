@@ -5,4 +5,5 @@ def main():
 
 def convert(string):
     string = string.replace(":)",🙂)
-    string = string.replace(":(",)
+    string = string.replace(":(",🙁)
+    return
