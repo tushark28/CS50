@@ -4,4 +4,5 @@ def main():
     print(string)
 
 def convert(string):
-    down = string.find(":)")
+    string = string.replace(":)",🙂)
+    string = string.replace(":(",)
