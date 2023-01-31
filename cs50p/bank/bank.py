@@ -1,5 +1,9 @@
 greet = input("Greeting: ").strip(" ").lower()
-
-if greet.find("hello") != -1:
+array = greet.split(" ")
+first = array[0]
+if "hello" == first :
     print("$0")
-elif greet.find(")
+elif first[0] == 'h':
+    print("$20")
+else:
+    print("$100")
