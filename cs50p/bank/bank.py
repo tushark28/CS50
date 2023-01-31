@@ -1,9 +1,9 @@
-greet = input("Greeting: ").strip(" ").lower()
+greet = input("Greeting: ").strip(" ").lower().strip(",")
 array = greet.split(" ")
 first = array[0]
 if "hello" == first :
-    print("$0",end="")
+    print("$0")
 elif first[0] == 'h':
-    print("$20",end="")
+    print("$20")
 else:
-    print("$100",end="")
+    print("$100")
