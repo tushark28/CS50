@@ -12,7 +12,8 @@ def dollars_to_float(d):
 
 def percent_to_float(p):
     # TODO
-    return float(f"0.${p.strip("%")}")
+    p=p.strip("%")
+    return float(f"0.{p}")
 
 
 main()
