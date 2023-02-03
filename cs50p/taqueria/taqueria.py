@@ -14,6 +14,6 @@ while True:
     string = input("Item: ").lower().title()
     try:
         total += menu[string]
-        print(f"Total: {total}")
+        print(f"Total: ${total}")
     except KeyError:
         pass
