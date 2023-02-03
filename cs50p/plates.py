@@ -21,7 +21,9 @@ def is_valid(s):
 
     if char_count < 2:
         return False
-    if len(s) == char_count and not total_count>6:
+    if not total_count > 6:
+        return True
+    if len(s) == char_count:
         return True
     if s[char_count] == '0':
         return False
