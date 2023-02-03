@@ -1,5 +1,7 @@
 while True:
-    fuel = input("Fraction: )
+    fuel = input("Fraction: ")
     try:
+        x,y = fuel.split("/")
         x = int(x)
+        y = int(y)
 
