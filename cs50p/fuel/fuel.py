@@ -4,4 +4,7 @@ while True:
         x,y = fuel.split("/")
         x = int(x)
         y = int(y)
+        if x>y:
+            continue
+        
 
