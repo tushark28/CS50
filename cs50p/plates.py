@@ -21,9 +21,10 @@ def is_valid(s):
 
     if char_count < 2:
         return False
+    if len(s) == char_count:
+        return True
     if s[char_count] == '0':
         return False
-
     for i in range(char_count,len(s)):
         total_count+=1
         if i == ' ' or i == '.' or i ==',':
