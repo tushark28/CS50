@@ -22,5 +22,6 @@ nutrition = {
 }
 
 item = input("Item: ").lower()
-if nutrition[item]:
-    print(f"Calories: {nutrition[item]}")
+for i in nutrition:
+    if i == item:
+        print(f"Calories: {nutrition[item]}")
