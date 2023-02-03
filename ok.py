@@ -1,6 +1,6 @@
 import math
 def main():
-    self=0
+    self=False
     num=5
     self = judgeSquareSum(self,num)
 
@@ -26,6 +26,7 @@ def primeFactors(n,root):
         root = {}
         root = primeFactors(c,root)
         print(root)
+        return False
 
 
 
