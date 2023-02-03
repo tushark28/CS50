@@ -1,7 +1,7 @@
 import math
 def main():
     self=False
-    num=6
+    num=999999999
     self = judgeSquareSum(self,num)
     print(self)
 
