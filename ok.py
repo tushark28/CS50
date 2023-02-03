@@ -1,7 +1,7 @@
 import math
 def main():
     self=False
-    num=315
+    num=6
     self = judgeSquareSum(self,num)
 
 def primeFactors(n,root):
@@ -25,6 +25,7 @@ def judgeSquareSum(self, c: int) -> bool:
         return True
     root = {}
     root = primeFactors(c,root)
+    print(root)
     for i in root:
         if root[i]%2 != 0:
             if i%4 !=3:
