@@ -14,7 +14,7 @@ while True:
     try:
         string = input("Item: ").lower().title()
         total += menu[string]
-        print(f"Total: ${%.2f}{total}")
+        print(f"Total: ${%.2f}{%total}")
     except KeyError:
         pass
     except EOFError:
