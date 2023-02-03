@@ -1,7 +1,7 @@
 import math
 def main():
     self=False
-    num=315
+    num=
     self = judgeSquareSum(self,num)
 
 def primeFactors(n,root):
@@ -10,10 +10,10 @@ def primeFactors(n,root):
     while(n > 1):
         if(n % c == 0):
             if flag==0:
-                root[n] = 1
+                root[c] = 1
                 flag=1
             else:
-                root[n] +=1
+                root[c] +=1
             n = n / c
         else:
             c = c + 1
