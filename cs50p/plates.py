@@ -19,7 +19,9 @@ def is_valid(s):
         if i.isdigit():
             break
 
-    if char_count < 1:
+    if char_count < 2:
+        return False
+    if s[char_count] == '0':
         return False
 
     for i in range(char_count,len(s)):
@@ -28,7 +30,7 @@ def is_valid(s):
             return False
         if not s[i].isdigit():
             return False
-    if not total_count > 5:
+    if not total_count > 6:
         return True
 
 main()
