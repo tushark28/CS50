@@ -7,9 +7,14 @@ def main():
 
 
 def is_valid(s):
-
+    char_count = 0
     for i in s:
-        if i
+        char_count+=1
+        if i.isalpha():
+            continue
+        if i.isdigit():
+            break:
+    for i in range(len(s)):
 
 
 main()
