@@ -1,1 +1,5 @@
-fuel = input("Fraction: )
+while True:
+    fuel = input("Fraction: )
+    try:
+        x = int(x)
+
