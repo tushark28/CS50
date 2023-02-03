@@ -27,14 +27,15 @@ def judgeSquareSum(self, c: int) -> bool:
     root = primeFactors(c,root)
     print(root)
     print(len(root))
+    flag = 0
     for i in root:
         if root[i]%2 != 0:
-                if i%4 !=3:
-                    flag+=1
-                else:
-                    return False
-            if flag==len(root):
-                return True
+            if i%4 !=3:
+                flag+=1
+            else:
+                return False
+        if flag==len(root):
+            return True
 
 
 
