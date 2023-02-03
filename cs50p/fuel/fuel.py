@@ -1,0 +1,1 @@
+fuel = input("Fraction: )
