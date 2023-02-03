@@ -8,8 +8,10 @@ def main():
 
 def is_valid(s):
     char_count = 0
+    total_count = 0
     for i in s:
         char_count+=1
+        total_count+=1
         if i == ' ' or i == '.' or i ==',':
             return False
         if i.isalpha():
@@ -21,10 +23,12 @@ def is_valid(s):
         return False
 
     for i in range(char_count,len(s)):
+        total_count+=1
         if i == ' ' or i == '.' or i ==',':
             return False
         if not s[i].isdigit():
             return False
-    return True
+    if not total_count > 5:
+        return True
 
 main()
