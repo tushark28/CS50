@@ -2,7 +2,8 @@ import math
 def main():
     self=0
     num=5
-    judgeSquareSum(self,num)
+    self = judgeSquareSum(self,num)
+
 def primeFactors(n,root):
         c = 2
         flag = 0
@@ -24,3 +25,12 @@ def primeFactors(n,root):
             return True
         root = {}
         root = primeFactors(c,root)
+        print(root)
+
+
+
+
+
+
+
+main()
