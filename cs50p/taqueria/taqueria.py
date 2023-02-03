@@ -1,5 +1,4 @@
-menu =
-{
+menu ={
     "Baja Taco": 4.00,
     "Burrito": 7.50,
     "Bowl": 8.50,
@@ -16,3 +15,5 @@ while True:
     try:
         total += menu[string]
         print(f"Total: {total}")
+    except KeyError:
+        pass
