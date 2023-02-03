@@ -10,11 +10,21 @@ def is_valid(s):
     char_count = 0
     for i in s:
         char_count+=1
+        if i == ' ' or i == '.' or i ==',':
+            return False
         if i.isalpha():
             continue
         if i.isdigit():
-            break:
-    for i in range(len(s)):
+            break
 
+    if char_count < 1:
+        return False
+
+    for i in range(char_count,len(s)):
+        if i == ' ' or i == '.' or i ==',':
+            return False
+        if not s[i].isdigit():
+            return False
+    return True
 
 main()
