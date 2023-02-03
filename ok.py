@@ -30,9 +30,8 @@ def judgeSquareSum(self, c: int) -> bool:
     print(len(root))
     flag = 0
     check = 0
+    del root[2]
     for i in root:
-        if i==2:
-            continue
         if root[i]%2 != 0:
             check+=1
             if i%4 !=3:
