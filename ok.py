@@ -1,7 +1,7 @@
 import math
 def main():
     self=False
-    num=999999999
+    num=20
     self = judgeSquareSum(self,num)
     print(self)
 
@@ -30,7 +30,10 @@ def judgeSquareSum(self, c: int) -> bool:
     print(len(root))
     flag = 0
     check = 0
-    del root[2]
+    try:
+        del root[2]
+    except KeyError:
+        pass
     for i in root:
         if root[i]%2 != 0:
             check+=1
