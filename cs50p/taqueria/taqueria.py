@@ -15,5 +15,5 @@ while True:
     try:
         total += menu[string]
         print(f"Total: ${total}")
-    except KeyError:
+    except (KeyError,EOFError):
         pass
