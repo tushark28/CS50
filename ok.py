@@ -1,8 +1,9 @@
 import math
 def main():
     self=False
-    num=20
+    num=6
     self = judgeSquareSum(self,num)
+    print(self)
 
 def primeFactors(n,root):
     c = 2
@@ -28,13 +29,15 @@ def judgeSquareSum(self, c: int) -> bool:
     print(root)
     print(len(root))
     flag = 0
+    check = 0
     for i in root:
         if root[i]%2 != 0:
+            check+=1
             if i%4 !=3:
                 flag+=1
             else:
                 return False
-        if flag==len(root):
+        if flag==check:
             return True
 
 
