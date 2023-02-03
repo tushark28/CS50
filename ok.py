@@ -1,7 +1,7 @@
 import math
 def main():
     self=False
-    num=6
+    num=20
     self = judgeSquareSum(self,num)
 
 def primeFactors(n,root):
