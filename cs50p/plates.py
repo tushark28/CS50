@@ -10,10 +10,10 @@ def is_valid(s):
     char_count = 0
     total_count = 0
     for i in s:
-        total_count+=1
         if i == ' ' or i == '.' or i ==',':
             return False
         if i.isalpha():
+            total_count+=1
             char_count+=1
             continue
         if i.isdigit():
