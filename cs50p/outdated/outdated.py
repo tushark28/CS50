@@ -18,10 +18,11 @@ while True:
         y, x, z = date.split("/")
         x = int(x)
         y = int(y)
-        if len(z) != 4 or x > 31 or int(y) > 12:
+        z= int(z)
+        if len(str(z)) != 4 or x > 31 or y > 12:
             continue
 
-        print(f"{int(z)}-{y:02d}-{x:02d}")
+        print(f"{z}-{y:02d}-{x:02d}")
         break
 
     except ValueError:
@@ -30,6 +31,7 @@ while True:
             continue
         if int(y[:-1]) > 31:
             continue
-        print(
-            f"{int(z)}-{(months.index(x.lower().title()) + 1):02d}-{int(y[:-1]):02d}")
+        y = int(y[:-1])
+        z = int(z)
+        print(f"{z}-{(months.index(x.lower().title()) + 1):02d}-{y:02d}")
         break
