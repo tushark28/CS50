@@ -9,3 +9,4 @@ while True:
     except EOFError:
         for item in items:
             print(f"{items[item]} {item.upper()}")
+        break
