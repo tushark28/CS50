@@ -23,4 +23,6 @@ while True:
             print(f"{int(z)}-{int(y):02d}-{int(x):02d}")
         except ValueError:
             try:
+                x,y,z = date.split(" ")
+                if 
 
