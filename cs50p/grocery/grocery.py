@@ -7,6 +7,7 @@ while True:
         except KeyError:
             items[item] = 1
     except EOFError:
+        items.sort()
         for item in items:
             print(f"{items[item]} {item.upper()}")
         break
