@@ -12,7 +12,10 @@ months=[
     "November",
     "December"
 ]
-try:
-    date = input("Date: ")
-    x,y,z = date.split("/")
-    print("")
+while True:
+    try:
+        date = input("Date: ")
+        x,y,z = date.split("/")
+        print(f"{z}-{y:02d}-{x:02d}")
+    except ValueError:
+        pass
