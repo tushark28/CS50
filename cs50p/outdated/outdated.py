@@ -26,12 +26,16 @@ while True:
         break
 
     except ValueError:
-        x, y, z = date.split(" ")
-        if y[-1] != ',' or (x.lower().title() not in months) or len(z) != 4:
+        try:
+            x, y, z = date.split(" ")
+            if y[-1] != ',' or (x.lower().title() not in months) or len(z) != 4:
+                continue
+            if int(y[:-1]) > 31:
+                continue
+            y = int(y[:-1])
+            z = int(z)
+            print(f"{z}-{(months.index(x.lower().title()) + 1):02d}-{y:02d}")
+            break
+        except ValueError:
             continue
-        if int(y[:-1]) > 31:
-            continue
-        y = int(y[:-1])
-        z = int(z)
-        print(f"{z}-{(months.index(x.lower().title()) + 1):02d}-{y:02d}")
-        break
+
