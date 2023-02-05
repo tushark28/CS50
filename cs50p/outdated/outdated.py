@@ -13,16 +13,19 @@ months=[
     "December"
 ]
 while True:
+    date = input("Date: ")
     try:
-        date = input("Date: ")
-        try:
-            x,y,z = date.split("/")
-            if len(z) != 4 or int(x) > 31 or int(y) > 12:
-                continue
+        x,y,z = date.split("/")
+        if len(z) != 4 or int(x) > 31 or int(y) > 12:
+            continue
 
-            print(f"{int(z)}-{int(y):02d}-{int(x):02d}")
-        except ValueError:
-            try:
-                x,y,z = date.split(" ")
-                if 
+        print(f"{int(z)}-{int(y):02d}-{int(x):02d}")
+    except ValueError:
+        try:
+            x,y,z = date.split(" ")
+            if y[-1]!=',' or (x not in months) or len(z)!=4:
+                continue
+            if int(y[:-1])>31:
+                continue
+            print(f")
 
