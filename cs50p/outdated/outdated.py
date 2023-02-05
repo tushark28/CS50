@@ -16,6 +16,8 @@ while True:
     try:
         date = input("Date: ")
         x,y,z = date.split("/")
-        print(f"{z}-{y:02d}-{x:02d}")
+        if len(z) != 4:
+            continue
+        print(f"{int(z)}-{int(y):02d}-{int(x):02d}")
     except ValueError:
         pass
