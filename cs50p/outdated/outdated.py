@@ -21,6 +21,6 @@ while True:
                 continue
 
             print(f"{int(z)}-{int(y):02d}-{int(x):02d}")
-    except ValueError:
-        try:
+        except ValueError:
+            try:
 
