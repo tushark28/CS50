@@ -5,6 +5,9 @@ if len(sys.argv) != 2:
 
 try:
     coin = int(sys.argv[1])
-except:
+except ValueError:
     sys.exit("Command-line argument is not a number")
-    
+
+try:
+    response = requests.get(")
+
