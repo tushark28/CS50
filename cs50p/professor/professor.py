@@ -10,11 +10,11 @@ def main():
         int2 = generate_integer(level)
         for j in range(3):
             try:
-                ans = input(f"{int1} + {int2} = ")
+                ans = int(input(f"{int1} + {int2} = "))
             except ValueError:
                 print("EEE")
                 continue
-            
+
             if ans == int1 + int2:
                 count += 1
                 break
