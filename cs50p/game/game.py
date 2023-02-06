@@ -3,10 +3,10 @@ while True:
     level = input("Level: ")
     if not level.isdigit():
         continue
+    elif 0 > int(level) > 100:
+        continue
     else:
         level = int(level)
-        if level > 100:
-            continue
         level = random.randint(1,level)
         break
 while True:
