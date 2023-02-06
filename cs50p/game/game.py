@@ -5,6 +5,8 @@ while True:
         continue
     else:
         level = int(level)
+        if level > 100:
+            continue
         level = random.randint(1,level)
         break
 while True:
