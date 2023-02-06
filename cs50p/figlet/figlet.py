@@ -3,13 +3,16 @@ import sys
 
 if len(sys.argv) == 3:
     if sys.argv[1] == '-f' or sys.argv[1] == '--font':
-        try:
-            f=pyfiglet.Figlet(font=sys.argv[2])
-        except FontNotFound(sys.argv[2]):
+        f=pyfiglet.Figlet()
+        fonts = f.getFonts()
+
+        if sys.argv[2] not in fonts:
             sys.exit("Invalid Usage")
+        f.setFont(font=sys.argv[2])
         user = input("Input: ")
         print("Output: ")
         print(f.renderText(user))
+
     else:
         sys.exit("Invalid Usage")
 else:
