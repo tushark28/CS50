@@ -1,7 +1,7 @@
 while True:
     try:
-        string = input("Name: ")
-        
+        string = {}
+        string.append(input("Name: "))
 
     except EOFError:
         break
