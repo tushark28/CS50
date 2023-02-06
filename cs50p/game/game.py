@@ -3,7 +3,7 @@ while True:
     level = input("Level: ")
     if not level.isdigit():
         continue
-    elif 0 > int(level) > 100:
+    elif 0 > int(level) < 100:
         continue
     else:
         level = int(level)
