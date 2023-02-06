@@ -1,6 +1,7 @@
 from twttr import shorten
 def main():
-    test_twttr()
+    test_twttr_lower()
+    test_twttr_upper()
 def test_twttr():
     assert shorten("twitter") == "twttr"
 
