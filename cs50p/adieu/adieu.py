@@ -1,5 +1,5 @@
+List = []
 while True:
-    List = []
     try:
         List.append(input("Name: "))
 
