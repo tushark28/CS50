@@ -20,3 +20,6 @@ elif len(sys.argv) == 1:
     print("Output: ")
     f=pyfiglet.Figlet()
     print(f.renderText(user))
+
+else:
+    sys.exit("Invalid Usage")
