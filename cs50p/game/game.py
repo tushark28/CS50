@@ -1,4 +1,7 @@
 import random
 while True:
     level = input("Level: ")
-    if level.is_integer()
+    if not level.isdigit():
+        continue
+    else:
+        level = random.getint()
