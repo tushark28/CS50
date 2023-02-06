@@ -3,7 +3,13 @@ import random
 
 def main():
     level = get_level()
-    
+    count = 0
+    for i in range(10):
+        for j in range(3):
+            int1 = generate_integer(level)
+            int2 = generate_integer(level)
+            try:
+                
 
 
 def get_level():
