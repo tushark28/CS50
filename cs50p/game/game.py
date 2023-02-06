@@ -4,6 +4,7 @@ while True:
     if not level.isdigit():
         continue
     else:
+        level = int(level)
         level = random.randint(1,level)
         break
 while True:
@@ -11,6 +12,7 @@ while True:
     if not guess.isdigit():
         continue
     else:
+        guess = int(guess)
         if level>guess:
             print("Too small!")
             continue
