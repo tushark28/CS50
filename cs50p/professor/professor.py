@@ -24,7 +24,7 @@ def main():
 
         if flag == 3:
             print(f"{int1} + {int2} = {int1 + int2}")
-
+    print("Score:",count)
 
 def get_level():
     try:
