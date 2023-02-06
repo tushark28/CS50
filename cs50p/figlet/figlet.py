@@ -15,7 +15,7 @@ if len(sys.argv) == 3:
 
     else:
         sys.exit("Invalid Usage")
-else:
+elif len(sys.argv) == 1:
     user = input("Input: ")
     print("Output: ")
     f=pyfiglet.Figlet()
