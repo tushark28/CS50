@@ -35,5 +35,5 @@ def is_valid(s):
             return False
     if not total_count > 6:
         return True
-
-main()
+if __name__ == "__main__":
+    main()
