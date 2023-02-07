@@ -8,4 +8,4 @@ def main():
     test_gauge_normal()
 
 def test_convert_zero():
-    assert convert()
+    with pytest. convert("5/0")
