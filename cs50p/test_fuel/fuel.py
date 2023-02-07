@@ -5,7 +5,10 @@ def main():
     print(ans)
 
 def convert(fuel):
-    x,y = fuel.split("/")
+    try:
+        x,y = fuel.split("/")
+    except ValueError:
+        raise ValueError
     x = int(x)
     y = int(y)
     if y==0:

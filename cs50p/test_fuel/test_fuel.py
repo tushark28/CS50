@@ -6,6 +6,7 @@ def main():
     test_gauge_99()
     test_gauge_1()
     test_gauge_normal()
+    test_convert_inc()
 
 def test_convert_zero():
     with pytest.raises(ZeroDivisionError):
@@ -23,6 +24,10 @@ def test_gauge_1():
 
 def test_gauge_normal():
     assert gauge(75) == "75%"
+
+def test_convert_inc():
+    with pytest.raises(ValueError):
+        convert("cat.55")
 
 if __name__ == "__main__":
     main()
