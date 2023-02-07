@@ -1,11 +1,11 @@
 def main():
-    greet = input("Greeting: ").strip(" ").lower()
+    greet = input("Greeting: ")
     greet = value(greet)
     print(greet)
 
 
 def value(greet):
-    array = greet.split(" ")
+    array = greet.strip(" ").lower().split(" ")
     first = array[0]
     if first.find("hello") !=-1 :
         return "$0"
