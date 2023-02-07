@@ -8,6 +8,8 @@ def convert(fuel):
     x,y = fuel.split("/")
     x = int(x)
     y = int(y)
+    if x>y:
+        raise ValueError
     return round(x/y *100)
 
 def gauge(per):
