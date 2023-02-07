@@ -1,24 +1,22 @@
-while True:
+def main():
     fuel = input("Fraction: ")
-    try:
-        x,y = fuel.split("/")
-        x = int(x)
-        y = int(y)
-        if x>y:
-            continue
-        if y==0:
-            continue
-    except ValueError:
-        pass
+    fuel = convert(fuel)
+    ans = gauge(fuel)
+    print(ans)
+
+def convert(fuel):
+    x,y = fuel.split("/")
+    x = int(x)
+    y = int(y)
+    return round(x/y *100)
+
+def gauge(per):
+    if per<=1:
+        return ("E")
+    elif per>=99:
+        return ("F")
     else:
-        break
+        return (f"{per}%")
 
-per = round(x/y *100)
-
-if per<=1:
-    print("E")
-elif per>=99:
-    print("F")
-else:
-    print(f"{per}%")
-
+if __name__ == "__main__":
+    main()
