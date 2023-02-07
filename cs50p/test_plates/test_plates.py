@@ -23,5 +23,11 @@ def test_h():
 def test_outatime():
     assert is_valid("OUTATIME") == False
 
+def test_number():
+    assert is_valid("96904") == False
+
+def test_place():
+    assert is_valid("ab86a") == False
+
 if __name__ == "__main__":
     main()
