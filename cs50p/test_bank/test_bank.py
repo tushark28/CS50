@@ -7,3 +7,6 @@ def test():
     assert value("hey") == "$20"
     assert value("what's up") == "$100"
     assert value("HELLO") == "$0"
+
+if __name__ == "__main__":
+    main()
