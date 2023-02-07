@@ -27,7 +27,7 @@ def test_gauge_normal():
 
 def test_convert_inc():
     with pytest.raises(ValueError):
-        convert("cat.55")
+        convert("cat/dog")
 
 if __name__ == "__main__":
     main()

@@ -7,10 +7,10 @@ def main():
 def convert(fuel):
     try:
         x,y = fuel.split("/")
+        x = int(x)
+        y = int(y)
     except ValueError:
         raise ValueError
-    x = int(x)
-    y = int(y)
     if y==0:
         raise ZeroDivisionError
     if x>y:
