@@ -8,4 +8,21 @@ def main():
     test_gauge_normal()
 
 def test_convert_zero():
-    with pytest. convert("5/0")
+    with pytest.raises(ZeroDivisionError):
+        convert("5/0")
+
+def test_convert_big():
+    with pytest.raises(ValueError):
+        convert("5/4")
+
+def test_gauge_99():
+    assert gauge(99) == "F"
+
+def test_gauge_1():
+    assert gauge(1) == "E"
+
+def test_gauge_normal():
+    assert gauge(75) == "75%"
+
+if __name__ == "__main__":
+    main()
