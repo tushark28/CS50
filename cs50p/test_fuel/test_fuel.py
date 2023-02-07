@@ -18,7 +18,7 @@ def test_convert_big():
 
 def test_gauge_99():
     assert gauge(99) == "F"
-    assert convert("1/4") == 25 and assert gauge(25)== '25%'
+    assert convert("1/4") == 25 and gauge(25)== '25%'
 
 def test_gauge_1():
     assert gauge(1) == "E"
