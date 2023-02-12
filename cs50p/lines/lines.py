@@ -16,7 +16,14 @@ except IndexError:
 except FileNotFoundError:
     sys.exit("File does not Exist")
 
+count = 0
 for line in file:
-    if line[]
+    if line[0] == '#':
+        continue
+    elif len(line) == len(line)*" ":
+        continue
+    else:
+        count+=1
 
+print(count)
 file.close()
