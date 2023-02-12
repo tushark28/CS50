@@ -19,7 +19,10 @@ except FileNotFoundError:
 count = 0
 for line in file:
     line = line.lstrip()
-    if line.
+    if line.startswith('#') or line.startswith('\n'):
+        continue
+    else:
+        count+=1
     # if line[0] == '#' or line[0] == '\n':
     #     continue
     # for word in line:
