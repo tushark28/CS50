@@ -18,23 +18,25 @@ except FileNotFoundError:
 
 count = 0
 for line in file:
-    if line.isspace():
-        continue
-    elif line.lstrip().startswith('#'):
-        continue
-    else:
-        count+=1
-    # if line[0] == '#' or line[0] == '\n':
+    # if line.isspace():
     #     continue
-    # for word in line:
-    #     if word == ' ':
-    #         continue
-    #     else:
-    #         if word == '#':
-    #             break
-    #         else:
-    #             count+=1
-    #             break
+    # elif line.lstrip().startswith('#'):
+    #     continue
+    # else:
+    #     count+=1
+    if line[0] == '#' or line[0] == '\n':
+        continue
+    for word in line:
+        if word == ' ':
+            continue
+        else:
+            if word == '#':
+                break
+            elif word == '\n':
+                break
+            else:
+                count+=1
+                break
 
 print(count)
 file.close()
