@@ -18,6 +18,7 @@ except FileNotFoundError:
 
 count = 0
 for line in file:
+    line.lstrip(' ')
     if line[0] == '#' or line[0] == '\n':
         continue
     for word in line:
