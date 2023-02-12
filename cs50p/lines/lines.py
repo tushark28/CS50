@@ -18,7 +18,7 @@ except FileNotFoundError:
 
 count = 0
 for line in file:
-    if line[0] == '#':
+    if line[0] == '#' or line[0] == '\n':
         continue
     elif line[0] == '\n':
         continue
