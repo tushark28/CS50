@@ -18,10 +18,9 @@ except FileNotFoundError:
 
 count = 0
 for line in file:
-    print(f"{len(line)} and \n {len(line)*'.'}")
     if line[0] == '#':
         continue
-    elif line == len(line)*" ":
+    elif line[0] == '\n':
         continue
     else:
         count+=1
