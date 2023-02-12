@@ -10,3 +10,5 @@ try:
         sys.exit("Not a python file")
 except ValueError:
     sys.exit("Not a python file")
+except IndexError:
+    sys.exit("Not a python file")
