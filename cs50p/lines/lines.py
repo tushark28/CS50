@@ -20,10 +20,15 @@ count = 0
 for line in file:
     if line[0] == '#' or line[0] == '\n':
         continue
-    elif line[0] == '\n':
-        continue
-    else:
-        count+=1
+    for word in line:
+        if word == ' ':
+            continue
+        else:
+            if word == '#':
+                break
+            else:
+                count+=1
+                break
 
 print(count)
 file.close()
