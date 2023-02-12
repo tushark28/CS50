@@ -18,8 +18,9 @@ except FileNotFoundError:
 
 count = 0
 for line in file:
-    line = line.lstrip()
-    if line.startswith('#') or line.startswith('\n'):
+    if line.isspace():
+        continue
+    elif line.lstrip().startswith('#'):
         continue
     else:
         count+=1
