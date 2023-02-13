@@ -1,4 +1,5 @@
 import sys
+from PIL import Image
 
 if len(sys.argv) > 3:
     sys.exit("Too many command-line arguments")
@@ -10,11 +11,13 @@ try:
         sys.exit("Invalid Input")
     if sys.argv[1].split(".")[1] != sys.argv[2].split(".")[1]:
         sys.exit("Input and Output have different extensions")
-    file1 = open(sys.argv[1],"r")
-    file2 = open(sys.argv[2],")
+    image1 = Image.open(sys.argv[1])
+    image2 = Image.open(sys.argv[2])
 except ValueError:
     sys.exit("Invalid Input")
 except IndexError:
     sys.exit("Invalid Input")
 except FileNotFoundError:
     sys.exit("File does not Exist")
+
+
