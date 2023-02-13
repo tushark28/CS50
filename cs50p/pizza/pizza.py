@@ -24,4 +24,4 @@ printlist = []
 for line in reader:
     printlist.append(line)
 
-print(tabulate(printlist,headers="firstrow",tablefmt="grid"))
+print(tabulate.tabulate(printlist,headers="firstrow",tablefmt="grid"))
