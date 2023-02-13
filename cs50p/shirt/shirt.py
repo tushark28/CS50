@@ -22,5 +22,5 @@ except FileNotFoundError:
     sys.exit("File does not Exist")
 
 image2 = ImageOps.fit(image1,cs50.size)
-image2.paste(cs50)
+image2.paste(cs50,mask=cs50)
 image2.save(sys.argv[2])
