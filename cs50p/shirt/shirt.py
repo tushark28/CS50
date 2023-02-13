@@ -13,6 +13,7 @@ try:
         sys.exit("Input and Output have different extensions")
     image1 = Image.open(sys.argv[1])
     image2 = Image.open(sys.argv[2])
+    cs50 = Image.open("shirt.png")
 except ValueError:
     sys.exit("Invalid Input")
 except IndexError:
@@ -20,4 +21,5 @@ except IndexError:
 except FileNotFoundError:
     sys.exit("File does not Exist")
 
+image1.
 
