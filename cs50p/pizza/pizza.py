@@ -1,5 +1,6 @@
 import sys
-import 
+import tabulate
+import csv
 
 if len(sys.argv) > 2:
     sys.exit("Too many command-line arguments")
@@ -7,12 +8,20 @@ elif len(sys.argv) <2:
     sys.exit("Too few command-line arguments")
 
 try:
-    if sys.argv[1].split(".")[1] != "py":
-        sys.exit("Not a python file")
+    if sys.argv[1].split(".")[1] != "csv":
+        sys.exit("Not a csv file")
     file = open(sys.argv[1],"r")
 except ValueError:
-    sys.exit("Not a python file")
+    sys.exit("Not a csv file")
 except IndexError:
-    sys.exit("Not a python file")
+    sys.exit("Not a csv file")
 except FileNotFoundError:
     sys.exit("File does not Exist")
+
+reader = csv.reader(file)
+printlist = []
+
+for line in reader:
+    printlist.append(line)
+
+print(tabulate(printlist,headers="firstrow",tablefmt="grid"))
