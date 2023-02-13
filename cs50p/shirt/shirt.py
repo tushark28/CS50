@@ -1,5 +1,5 @@
 import sys
-from PIL import Image
+from PIL import Image,ImageOps
 
 if len(sys.argv) > 3:
     sys.exit("Too many command-line arguments")
@@ -21,5 +21,5 @@ except IndexError:
 except FileNotFoundError:
     sys.exit("File does not Exist")
 
-image1.
+image2 = ImageOps.fit(image1,cs50.size)
 
