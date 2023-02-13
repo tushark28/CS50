@@ -1,9 +1,9 @@
 import sys
 import csv
 
-if len(sys.argv) > 2:
+if len(sys.argv) > 3:
     sys.exit("Too many command-line arguments")
-elif len(sys.argv) <2:
+elif len(sys.argv) <3:
     sys.exit("Too few command-line arguments")
 
 try:
@@ -26,4 +26,6 @@ for line in reader:
 file.close()
 
 with open(sys.argv[2],"w") as file:
-    
+    writer = csv.DictWriter(file)
+    for line in new:
+        writer.writerow(line)
