@@ -10,7 +10,8 @@ try:
         sys.exit("Invalid Input")
     if sys.argv[1].split(".")[1] != sys.argv[2].split(".")[1]:
         sys.exit("Input and Output have different extensions")
-    # file1 = open(sys.argv[1],"r")
+    file1 = open(sys.argv[1],"r")
+    file2 = open(sys.argv[2],")
 except ValueError:
     sys.exit("Invalid Input")
 except IndexError:
