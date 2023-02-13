@@ -27,5 +27,6 @@ file.close()
 
 with open(sys.argv[2],"w") as file:
     writer = csv.DictWriter(file,fieldnames=["first","last","house"])
+    writer.writeheader()
     for line in new:
         writer.writerow({"first" : line["first"], "last":line["last"],"house":line["house"]})
