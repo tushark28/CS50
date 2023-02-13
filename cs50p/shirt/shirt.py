@@ -12,7 +12,7 @@ try:
     if sys.argv[1].split(".")[1] != sys.argv[2].split(".")[1]:
         sys.exit("Input and Output have different extensions")
     image1 = Image.open(sys.argv[1])
-    image2 = Image.open(sys.argv[2])
+    #image2 = Image.open(sys.argv[2])
     cs50 = Image.open("shirt.png")
 except ValueError:
     sys.exit("Invalid Input")
