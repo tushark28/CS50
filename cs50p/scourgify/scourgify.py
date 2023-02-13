@@ -17,4 +17,13 @@ except IndexError:
 except FileNotFoundError:
     sys.exit("File does not Exist")
 
-reader = csv.DictReader()
+reader = csv.DictReader(file)
+new =[]
+for line in reader:
+    last,first = line["name"].split(",")
+    new.append({"first":first.lstrip() , "last":last, "house":line["house"]})
+
+file.close()
+
+with open(sys.argv[2],"w") as file:
+    
