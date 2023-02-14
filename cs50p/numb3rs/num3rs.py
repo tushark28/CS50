@@ -6,14 +6,14 @@ def main():
 
 
 def validate(ip):
-    if match := re.search(r"^([0-9])\.([0-9])\.([0-9])\.([0-9])$",ip):
-        if not 0<=match.groups(1) <=255:
+    if match := re.search(r"^([0-9])+\.([0-9])+\.([0-9])+\.([0-9])+$",ip):
+        if not 0<=int(match.groups(1)) <=255:
             return False
-        if not 0<=match.groups(2) <=255:
+        if not 0<=int(match.groups(2)) <=255:
             return False
-        if not 0<=match.groups(3) <=255:
+        if not 0<=int(match.groups(3)) <=255:
             return False
-        if not 0<=match.groups(4) <=255:
+        if not 0<=int(match.groups(4)) <=255:
             return False
         return True
     else:
