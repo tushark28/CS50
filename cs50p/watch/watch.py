@@ -6,7 +6,9 @@ def main():
 
 
 def parse(s):
-    s = re.sub()
+    if match := re.search(
+        r"<iframe (?:width=\"[0-9]+\" )?(?:eight=\"[0-9]+\" )?(?:src=\"https?://(?:www\.)?youtube\.com/embed/(.)\" )title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",s
+        )
 
 
 if __name__ == "__main__":
