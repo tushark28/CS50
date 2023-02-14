@@ -20,8 +20,5 @@ def validate(ip):
         False
 
 
-
-
-
 if __name__ == "__main__":
     main()
