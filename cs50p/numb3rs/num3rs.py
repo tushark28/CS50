@@ -11,13 +11,13 @@ def validate(ip):
         print(match.groups(2))
         print(match.groups(3))
         print(match.groups(4))
-        if not 0<=int(match.groups(1)) <=255:
+        if not 0<=int(match.groups(1)[0]) <=255:
             return False
-        if not 0<=int(match.groups(2)) <=255:
+        if not 0<=int(match.groups(2)[1]) <=255:
             return False
-        if not 0<=int(match.groups(3)) <=255:
+        if not 0<=int(match.groups(3)[2]) <=255:
             return False
-        if not 0<=int(match.groups(4)) <=255:
+        if not 0<=int(match.groups(4)[3]) <=255:
             return False
         return True
     else:
