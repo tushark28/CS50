@@ -6,7 +6,7 @@ def main():
 
 
 def parse(s):
-    
+    s = re.sub()
 
 
 if __name__ == "__main__":
