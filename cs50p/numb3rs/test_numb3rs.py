@@ -9,7 +9,7 @@ def test_ok():
     assert validate("23.45.68.67") == True
 
 def test_wrong():
-    assert validate("522.245.563.24") == False
+    assert validate("23.295.563.294") == False
 
 def test_cat():
     assert validate("cat") == False
