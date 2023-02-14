@@ -1,5 +1,4 @@
 import re
-import sys
 
 
 def main():
@@ -7,7 +6,10 @@ def main():
 
 
 def validate(ip):
-    
+    if re.search(r"^{0-255}\.{0-255}\.{0-255}\.{0-255}$",ip):
+        return True
+    else:
+        False
 
 
 
