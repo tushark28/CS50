@@ -1,4 +1,4 @@
-from cs50p.numb3rs.numb3rs import validate
+from numb3rs import validate
 
 def main():
     test_ok()
@@ -13,6 +13,9 @@ def test_wrong():
 
 def test_cat():
     assert validate("cat") == False
+
+def test_5():
+    assert validate("23.45.32.23.32") == False
 
 if __name__ == "__main__":
     main()
