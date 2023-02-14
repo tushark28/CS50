@@ -1,4 +1,4 @@
-from num3rs import validate
+from cs50p.numb3rs.numb3rs import validate
 
 def main():
     test_ok()
