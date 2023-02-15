@@ -28,17 +28,23 @@ def convert(s):
             raise ValueError
 
         if str(matches.group(3)) == str('AM'):
-            time1p1 = f"{int(matches.group(1)):02d}"
+            if int(matches.group(1)) == 12:
+                time1p1 = "00"
+            else:
+                time1p1 = f"{int(matches.group(1)):02d}"
         else:
             time1p1 = str(int(matches.group(1))+12)
 
         if matches.group(2) != None:
-            time1p1 += f"{int(matches.group(2)):02d}"
+            time1p1 += f"{str(matches.group(2))}"
         else:
             time1p1 += ":00"
 
         if str(matches.group(6)) == str('AM'):
-            time2p1 = f"{int(matches.group(4)):02d}"
+            if int(matches.group(4)) == 12:
+                time2p1 = "00"
+            else:
+                time2p1 = f"{int(matches.group(4)):02d}"
         else:
             time2p1 = str(int(matches.group(4))+12)
 
