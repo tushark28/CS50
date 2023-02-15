@@ -8,7 +8,7 @@ def main():
 def convert(s):
     if matches := re.search(r"([0-9]+)(:[0-9]+)? (AM|PM) to ([0-9]+)(:[0-9]+)? (AM|PM)",s):
         print(matches.groups())
-        print(matches.group(1))
+        if not 1<= int(matches.group(1)) <= 12
 
 
 
