@@ -25,7 +25,7 @@ def convert(s):
             if not 0<=int(matches.group(5))<=59:
                 raise ValueError
 
-        if matches.group(6) != 'AM' or matches.group(6) != 'PM':
+        if not (str(matches.group(3)) == str('AM') or str(matches.group(3)) == str('PM')):
             raise ValueError
 
 
