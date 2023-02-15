@@ -1,12 +1,13 @@
 import validators
 
 def main():
-    print(count(input("What's your email address? ")))
+    print(validate(input("What's your email address? ")))
 
 
-def count(s):
-    matches = re.findall(r"(?:[ ]|^)um([, ?]|[^a-z]|$)",s.lower())
-    return len(matches)
+def validate(s):
+    if validators.email(s):
+        return "Valid"
+    return "Invalid"
 
 
 
