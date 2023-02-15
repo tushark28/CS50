@@ -6,8 +6,8 @@ def main():
 
 
 def convert(s):
-    if matches := re.search(r"([0-9]+)(:[0-9]+)? (AM|PM) to ([0-9]+)(:[0-9]+)? (AM|PM)",s)
-
+    if matches := re.search(r"([0-9]+)(:[0-9]+)? (AM|PM) to ([0-9]+)(:[0-9]+)? (AM|PM)",s):
+        print(matches.groups(1))
 
 
 
