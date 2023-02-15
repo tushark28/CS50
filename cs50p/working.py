@@ -38,7 +38,7 @@ def convert(s):
             time1p1 += ":00"
 
         if str(matches.group(6)) == str('AM'):
-            time2p1 = str(matches.group(4))
+            time2p1 = f"{int(matches.group(4)):02d}"
         else:
             time2p1 = str(int(matches.group(4))+12)
 
