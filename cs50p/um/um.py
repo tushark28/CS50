@@ -5,7 +5,7 @@ def main():
 
 
 def count(s):
-    matches = re.findall(r"um[^a-zA-Z0-9]?",s)
+    matches = re.findall(r"um([, ?]|[^a-z])",s)
     print(matches)
 
 
