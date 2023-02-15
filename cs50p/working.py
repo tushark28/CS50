@@ -33,7 +33,7 @@ def convert(s):
             time1p1 = str(int(matches.group(1))+12)
 
         if matches.group(2) != None:
-            time1p1 += f"{str(matches.group(2))}"
+            time1p1 += f"{int(matches.group(2)):02d}"
         else:
             time1p1 += ":00"
 
