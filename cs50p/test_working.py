@@ -3,7 +3,7 @@ import pytest
 
 def main():
     test_correct()
-    # test_wrong()
+    test_wrong()
     test_cat()
 
 def test_correct():
@@ -12,3 +12,7 @@ def test_correct():
 def test_cat():
     with pytest.raises(ValueError):
         convert("cat")
+
+def test_wrong():
+    with pytest.raises(ValueError):
+        convert("13 AM to 21 PM")

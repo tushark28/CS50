@@ -33,7 +33,10 @@ def convert(s):
             else:
                 time1p1 = f"{int(matches.group(1)):02d}"
         else:
-            time1p1 = str(int(matches.group(1))+12)
+            if int(matches.group(1)) == 12:
+                time1p1 = "12"
+            else:
+                time1p1 = str(int(matches.group(1))+12)
 
         if matches.group(2) != None:
             time1p1 += f"{str(matches.group(2))}"
@@ -46,7 +49,10 @@ def convert(s):
             else:
                 time2p1 = f"{int(matches.group(4)):02d}"
         else:
-            time2p1 = str(int(matches.group(4))+12)
+            if int(matches.group(4)) == 12:
+                time2p1 = "12"
+            else:
+                time2p1 = str(int(matches.group(4))+12)
 
         if matches.group(5) != None:
             time2p1 += f"{str(matches.group(5))}"
