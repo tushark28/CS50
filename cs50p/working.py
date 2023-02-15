@@ -28,7 +28,7 @@ def convert(s):
             raise ValueError
 
         if str(matches.group(3)) == str('AM'):
-            time1p1 = f"{int(matches.group(1)):2d}"
+            time1p1 = f"{int(matches.group(1)):02d}"
         else:
             time1p1 = str(int(matches.group(1))+12)
 
