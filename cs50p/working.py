@@ -12,9 +12,9 @@ def convert(s):
             raise ValueError
 
         if matches.group(2) != None:
-            if not 0<=int(matches.group(2))<=59:
+            if not 0<=int(matches.group(2).replace(":",""))<=59:
                 raise ValueError
-        print(matches.group(3), 'AM')
+
         if not (str(matches.group(3)) == str('AM') or str(matches.group(3)) == str('PM')):
             raise ValueError
 
@@ -22,12 +22,36 @@ def convert(s):
             raise ValueError
 
         if matches.group(5) != None:
-            if not 0<=int(matches.group(5))<=59:
+            if not 0<=int(matches.group(5).replace(":",""))<=59:
                 raise ValueError
 
-        if not (str(matches.group(3)) == str('AM') or str(matches.group(3)) == str('PM')):
+        if not (str(matches.group(6)) == str('AM') or str(matches.group(6)) == str('PM')):
             raise ValueError
 
+        if str(matches.group(3)) == str('AM'):
+            time1p1 = str(matches.group(1))
+        else:
+            time1p1 = str(int(matches.group(1))+12)
+
+        if matches.group(2) != None:
+            time1p1 += f"{str(matches.group(2))}"
+        else:
+            time1p1 += ":00"
+
+        if str(matches.group(6)) == str('AM'):
+            time2p1 = str(matches.group(4))
+        else:
+            time2p1 = str(int(matches.group(4))+12)
+
+        if matches.group(5) != None:
+            time2p1 += f"{str(matches.group(5))}"
+        else:
+            time2p1 += ":00"
+
+        return f"{time1p1} to {time2p1}"
+
+    else:
+        raise ValueError
 
 
 
