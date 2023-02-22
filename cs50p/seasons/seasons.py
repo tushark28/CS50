@@ -11,7 +11,7 @@ def main():
     except SyntaxError:
         sys.exit()
     ans = int((today-then).days)
-    print(ans*24*60)
+    print(num2words.num2words(ans*24*60), "minutes")
 
 if __name__ == "__main__":
     main()
