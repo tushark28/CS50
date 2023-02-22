@@ -17,7 +17,8 @@ def okay(birth):
     except (SyntaxError,ValueError):
         sys.exit("Invalid Date")
     ans = int((today-then).days)
-    return f"{engine.number_to_words(ans*24*60,andword="").capitalize()} minutes"
+    output = engine.number_to_words(ans*24*60,andword="")
+    return f"{output.capitalize()} minutes"
 
 
 if __name__ == "__main__":
