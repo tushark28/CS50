@@ -7,10 +7,10 @@ def main():
 
 
 def okay(birth):
-    today = datetime.datetime.today()
+    today = datetime.date.today()
     try:
         year,month,day = birth.split("-")
-        then = datetime.datetime(int(year),int(month),int(day))
+        then = datetime.date(int(year),int(month),int(day))
     except (SyntaxError,ValueError):
         sys.exit("Invalid Date")
     ans = int((today-then).days)
