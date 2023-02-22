@@ -9,8 +9,8 @@ def main():
         then = datetime.datetime(2001,6,1)
     except SyntaxError:
         sys.exit()
-    print(int(today-then))
-
+    ans = int((today-then).days)
+    print(ans*24*60)
 
 if __name__ == "__main__":
     main()
