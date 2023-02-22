@@ -11,7 +11,7 @@ def okay(birth):
     try:
         year,month,day = birth.split("-")
         then = datetime.datetime(int(year),int(month),int(day))
-    except SyntaxError:
+    except (SyntaxError,ValueError):
         sys.exit()
     ans = int((today-then).days)
     return f"{num2words.num2words(ans*24*60)} minutes"
