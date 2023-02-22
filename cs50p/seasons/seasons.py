@@ -3,11 +3,11 @@ import sys
 import num2words
 
 def main():
-    # birth = input("Date of Birth: ")
+    birth = input("Date of Birth: ")
     today = datetime.datetime.today()
     try:
-        # year,month,day = birth.split("-")
-        then = datetime.datetime(2001,6,1)
+        year,month,day = birth.split("-")
+        then = datetime.datetime(int(year),int(month),int(day))
     except SyntaxError:
         sys.exit()
     ans = int((today-then).days)
