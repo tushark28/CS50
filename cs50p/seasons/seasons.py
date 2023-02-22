@@ -3,7 +3,10 @@ import sys
 import num2words
 
 def main():
-    birth = input("Date of Birth: ")
+    print(okay(input("Date of Birth: ")))
+
+
+def okay(birth):
     today = datetime.datetime.today()
     try:
         year,month,day = birth.split("-")
@@ -11,7 +14,8 @@ def main():
     except SyntaxError:
         sys.exit()
     ans = int((today-then).days)
-    print(num2words.num2words(ans*24*60), "minutes")
+    return f"{num2words.num2words(ans*24*60)} minutes"
+
 
 if __name__ == "__main__":
     main()
