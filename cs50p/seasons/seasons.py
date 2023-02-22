@@ -1,7 +1,10 @@
 from datetime import date
 import sys
-import num2words
+import re
+import inflect
 
+
+engine = inflect.engine()
 def main():
     print(okay(input("Date of Birth: ")))
 
