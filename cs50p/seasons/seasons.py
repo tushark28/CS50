@@ -1,4 +1,4 @@
-import datetime
+from datetime import date
 import sys
 import num2words
 
@@ -7,10 +7,10 @@ def main():
 
 
 def okay(birth):
-    today = datetime.date.today()
+    today = date.today()
     try:
         year,month,day = birth.split("-")
-        then = datetime.date(int(year),int(month),int(day))
+        then = date(int(year),int(month),int(day))
     except (SyntaxError,ValueError):
         sys.exit("Invalid Date")
     ans = int((today-then).days)
