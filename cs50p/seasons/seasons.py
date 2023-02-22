@@ -9,7 +9,7 @@ def main():
         then = datetime.datetime(2001,6,1)
     except SyntaxError:
         sys.exit()
-    print(today-then)
+    print(int(today-then))
 
 
 if __name__ == "__main__":
