@@ -7,22 +7,22 @@ def test_init():
     assert jar2.capacity == 3
 
 def test_str():
-    jar = Jar()
-    assert str(jar) == ""
-    jar.deposit(1)
-    assert str(jar) == "🍪"
-    jar.deposit(11)
-    assert str(jar) == "🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪"
+    jar3 = Jar()
+    assert str(jar3) == ""
+    jar3.deposit(1)
+    assert str(jar3) == "🍪"
+    jar3.deposit(11)
+    assert str(jar3) == "🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪"
 
 def test_deposit():
-    jar = Jar(5)
-    jar.deposit(2)
-    assert jar.size == 7
+    jar4 = Jar(5)
+    jar4.deposit(2)
+    assert jar4.size == 7
 
 def test_withdraw():
-    jar = Jar(4)
-    jar.withdraw(3)
-    assert jar.size == 1
+    jar5 = Jar(4)
+    jar5.withdraw(3)
+    assert jar5.size == 1
 
 def main():
     test_init()
