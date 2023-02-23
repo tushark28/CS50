@@ -46,6 +46,8 @@ def main():
     print(jar)
     print(jar.capacity)
     print(jar.size)
+    jar2 = Jar()
+    jar2.deposit(12)
 
 
 
