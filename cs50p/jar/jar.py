@@ -28,6 +28,9 @@ class Jar:
 
     @size.setter
     def size(self,size):
+        if size == 0:
+            self._size = size
+            pass
         if 0 > (size + self.size):
             raise ValueError
         elif (size + self.size) > self.capacity:
@@ -41,7 +44,7 @@ def main():
     print(jar)
     jar.withdraw(2)
     print(jar)
-    # jar.deposit(15)
+    jar.deposit(15)
     print(jar)
 
 
