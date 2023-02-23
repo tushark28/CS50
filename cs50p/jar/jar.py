@@ -28,7 +28,7 @@ class Jar:
 
     @size.setter
     def size(self,size):
-        if 0 > size > self.capacity:
+        if 0 > (size + self.size) > self.capacity:
             raise ValueError
         self._size = size
 
