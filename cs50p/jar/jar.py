@@ -39,13 +39,14 @@ class Jar:
 
 def main():
     jar = Jar(15)
-    print(jar)
+    print(str(jar))
     jar.deposit(5)
     print(jar)
     jar.withdraw(2)
     print(jar)
-    jar.deposit(15)
-    print(jar)
+    print(jar.capacity)
+    print(jar.size)
+
 
 
 if __name__ == "__main__":
