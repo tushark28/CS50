@@ -35,17 +35,10 @@ class Jar:
         self._size = size
 
 def main():
-    jar = Jar(15)
-    print(str(jar))
-    jar.deposit(5)
-    print(jar)
-    jar.withdraw(2)
-    print(jar)
-    print(jar.capacity)
-    print(jar.size)
-    jar2 = Jar()
-    jar2.deposit(13)
-
+    jar5 = Jar(4)
+    jar5.deposit(4)
+    jar5.withdraw(3)
+    print(jar5.size)
 
 
 if __name__ == "__main__":
