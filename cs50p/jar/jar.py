@@ -31,3 +31,15 @@ class Jar:
         if 0 > size > self.capacity:
             raise ValueError
         self._size = size
+
+def main():
+    jar = Jar(15)
+    print(jar)
+    print(jar.deposit(5))
+    print(jar)
+    print(jar.withdraw(2))
+    print(jar)
+
+
+if __name__ == "__main__":
+    main()
