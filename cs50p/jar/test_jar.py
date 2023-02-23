@@ -15,4 +15,20 @@ def test_str():
     assert str(jar) == "🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪🍪"
 
 def test_deposit():
-    jar = Jar()
+    jar = Jar(5)
+    jar.deposit(2)
+    assert jar.size == 7
+
+def test_withdraw():
+    jar = Jar(4)
+    jar.withdraw(3)
+    assert jar.size == 1
+
+def main():
+    test_init()
+    test_str()
+    test_deposit()
+    test_withdraw()
+
+if __name__ == "__main__":
+    main()
